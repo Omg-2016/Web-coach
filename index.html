@@ -1,0 +1,207 @@
+<!-- =============================
+  index.html — Futuro en Movimiento (Layout tipo "plantilla" de las capturas)
+  Autor: Olga + ChatGPT
+  Instrucciones: guarda también styles.css (incluido debajo)
+============================= -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Futuro en Movimiento | Coaching — Santiago Suárez</title>
+  <meta name="description" content="Coaching emocional y motivacional para adolescentes, familias y equipos: sesiones 1:1, procesos, talleres y trabajo con equipos." />
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Hoja de estilos externa -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.png" />
+</head>
+<body>
+  <!-- Header / Navbar -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio">
+        <span class="brand-mark" aria-hidden="true">⬤</span>
+        <span class="brand-text">
+          <strong>Futuro en Movimiento</strong>
+          <small>Santiago Suárez · Coach</small>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Principal">
+        <a href="#inicio" class="is-active">Inicio</a>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Abrir menú">☰</button>
+    </div>
+  </header>
+
+  <!-- HERO tipo "split": izquierda copy + CTA, derecha foto en oscuro -->
+  <section id="inicio" class="hero hero--dark">
+    <div class="container hero-split">
+      <div class="hero-copy">
+        <h1><span>ÉXITO GRACIAS AL</span><br/>COACHING VITAL</h1>
+        <p class="lead">Acompaño a adolescentes, familias y equipos para convertir objetivos en acciones concretas.</p>
+        <a class="btn btn--pill" href="https://wa.me/34600000000?text=Hola%20Santiago%2C%20quiero%20informaci%C3%B3n%20sobre%20coaching" target="_blank" rel="noopener">Contactar ahora</a>
+      </div>
+      <figure class="hero-photo">
+        <img src="img/imagen-principal.png" alt="Retrato profesional"/>
+      </figure>
+    </div>
+  </section>
+
+  <!-- BLOQUE 1 — imagen izquierda, texto derecha -->
+  <section class="split-block">
+    <div class="container split-50">
+      <figure class="split-img">
+        <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=1600&auto=format&fit=crop" alt="Metáfora de creatividad y mente"/>
+      </figure>
+      <div class="split-text">
+        <h2 class="kicker">Ayudar a las personas a descubrir todo su potencial</h2>
+        <p>Sesiones claras y prácticas para ganar foco, gestionar emociones y pasar a la acción con confianza.</p>
+        <a class="btn btn--pill" href="#servicios">Más información</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOQUE 2 — texto izquierda, imagen derecha -->
+  <section class="split-block">
+    <div class="container split-50 reverse">
+      <div class="split-text">
+        <h2 class="kicker">¿Le interesa la formación de equipos?</h2>
+        <p>Trabajo con centros y empresas para mejorar coordinación, comunicación y resultados mediante dinámicas vivenciales.</p>
+        <a class="btn btn--pill" href="#servicios">Contactar ahora</a>
+      </div>
+      <figure class="split-img">
+        <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1600&auto=format&fit=crop" alt="Equipo en formación"/>
+      </figure>
+    </div>
+  </section>
+
+  <!-- TRES TARJETAS en franja gris/oscura -->
+  <section id="servicios" class="cards-band">
+    <div class="container cards-3">
+      <article class="band-card dark">
+        <h3>Coaching para el desarrollo personal</h3>
+        <p>Definir objetivos, romper bloqueos y crear hábitos sostenibles.</p>
+        <a class="btn btn--sm btn--pill" href="#contacto">Más información</a>
+      </article>
+      <article class="band-card mid">
+        <h3>Planificación académico-profesional</h3>
+        <p>Orientación, fortalezas y ruta práctica hacia metas de estudio y carrera.</p>
+        <a class="btn btn--sm btn--pill" href="#contacto">Más información</a>
+      </article>
+      <article class="band-card light">
+        <h3>Autodescubrimiento y estrategia</h3>
+        <p>Conectar con valores, gestionar emociones y decidir con claridad.</p>
+        <a class="btn btn--sm btn--pill" href="#contacto">Más información</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- BANNER ancho con imagen y texto a la derecha -->
+  <section class="image-banner">
+    <div class="container banner-wrap">
+      <figure class="banner-img">
+        <img src="https://images.unsplash.com/photo-1503424886307-b090341d25d1?q=80&w=2000&auto=format&fit=crop" alt="Sala de conferencias preparada"/>
+      </figure>
+      <div class="banner-text">
+        <h2>Liberar el potencial y hacer posible una vida plena</h2>
+        <p>Procesos de 6–10 sesiones con métricas, acciones entre sesiones y seguimiento para medir el avance.</p>
+        <a class="btn btn--pill" href="https://wa.me/34600000000" target="_blank" rel="noopener">Contactar ahora</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOQUE 3 — texto izquierda + CTA, imagen derecha -->
+  <section class="split-block">
+    <div class="container split-50">
+      <div class="split-text">
+        <h2 class="kicker">Crecimiento personal y éxito profesional</h2>
+        <p>Herramientas prácticas desde la primera sesión. Confidencialidad y ética por delante.</p>
+        <a class="btn btn--pill" href="#contacto">Contactar ahora</a>
+      </div>
+      <figure class="split-img">
+        <img src="img/personas-en-terapia-reunion-plano-medio.jpg" alt="Personas aprendiendo y celebrando"/>
+      </figure>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="contact-band">
+    <div class="container contact-grid">
+      <div class="contact-info">
+        <h2>Trabajemos juntos en tus objetivos</h2>
+        <p><strong>Teléfono:</strong> <a href="https://wa.me/34600000000" target="_blank" rel="noopener">+34 600 000 000</a></p>
+        <p><strong>Email:</strong> <a href="mailto:hola@futuroenmovimiento.es">hola@futuroenmovimiento.es</a></p>
+        <p><strong>Ubicación:</strong> Barcelona · Sesiones online y presenciales</p>
+        <div class="socials">
+<!-- LinkedIn -->
+  <a aria-label="LinkedIn" href="https://www.linkedin.com/in/tuusuario" target="_blank" rel="noopener">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="22" height="22" fill="currentColor">
+      <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8S24.1-.01 53.8-.01s53.8 24.1 53.8 53.8c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.4V302.4c0-34.7-12.4-58.4-43.5-58.4-23.7 0-37.8 15.9-44 31.3-2.3 5.6-2.9 13.5-2.9 21.4V448h-92.5s1.2-270.7 0-299.1h92.5v42.4c12.3-19 34.2-46.2 83.3-46.2 60.8 0 106.5 39.7 106.5 124.9V448z"/>
+    </svg>
+  </a>
+
+  <!-- Instagram (solid circle con cámara dentro) -->
+  <a aria-label="Instagram" href="https://www.instagram.com/tuusuario" target="_blank" rel="noopener">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="22" height="22" fill="currentColor">
+      <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141zm0 186.6c-39.6 0-71.7-32.1-71.7-71.7s32.1-71.7 71.7-71.7 71.7 32.1 71.7 71.7-32.1 71.7-71.7 71.7zm146.4-194.3a26.9 26.9 0 1 1-53.8 0 26.9 26.9 0 1 1 53.8 0zM398.8 80C383.7 64.9 362.6 56 340 56H108C85.4 56 64.3 64.9 49.2 80 34.1 95.1 25.2 116.2 25.2 138.8v232c0 22.6 8.9 43.7 24 58.8 15.1 15.1 36.2 24 58.8 24h232c22.6 0 43.7-8.9 58.8-24 15.1-15.1 24-36.2 24-58.8v-232c0-22.6-8.9-43.7-24-58.8z"/>
+    </svg>
+  </a>
+
+  <!-- TikTok -->
+  <a aria-label="TikTok" href="https://www.tiktok.com/@tuusuario" target="_blank" rel="noopener">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="22" height="22" fill="currentColor">
+      <path d="M448,209.9a210.1,210.1,0,0,1-122.5-39.2V349.4a162.7,162.7,0,1,1-129-159.6V264.4a98.5,98.5,0,1,0,71.2,94.9V0h80.3a129.4,129.4,0,0,0,0,25.3A129.1,129.1,0,0,0,448,154.8Z"/>
+    </svg>
+  </a>
+
+  <!-- WhatsApp (solid logo) -->
+  <a aria-label="WhatsApp" href="https://wa.me/34600000000" target="_blank" rel="noopener">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="22" height="22" fill="currentColor">
+      <path d="M380.9 97.1C339 55.1 283.2 32 224 32 100.3 32 0 132.3 0 256c0 45.3 12.1 89.3 35 128L0 480l99.9-34.7c36.5 19.9 77.6 30.4 124.1 30.4 123.7 0 224-100.3 224-224 0-59.2-23.1-115-67.1-157zM224 438c-36.5 0-72.2-10-103.2-29l-7.3-4.4-61.3 21 21-59.1-4.8-7.9C54.2 326.3 44 291.6 44 256c0-99.4 80.6-180 180-180 48.1 0 93.3 18.7 127.3 52.7S404 207.9 404 256c0 99.4-80.6 182-180 182zm99.6-138.7c-4.1-2-24.3-11.9-28.1-13.2-3.8-1.4-6.6-2-9.3 2-2.7 3.9-10.6 13.2-13 15.9-2.4 2.7-4.8 3.1-8.9 1.1-24.3-9.8-40.2-32.8-46.3-39.6-6.1-6.9-5.2-10.3-3.2-12.4 1.8-1.8 4.1-4.6 6.1-6.9 2-2.3 2.7-3.9 4.1-6.6 1.4-2.7.7-5-0.4-7-1.1-2-9.3-22.4-12.7-30.6-3.4-8.2-6.9-7.1-9.3-7.2-2.4-.1-5.2-.1-7.9-.1-2.7 0-7.9 1.1-12.1 5.5-4.1 4.3-15.9 15.5-15.9 37.8s16.3 43.8 18.6 46.8c2.3 3.1 32.2 49.4 78.1 69 10.9 4.7 19.4 7.6 26.5 9.7 10.1 2.1 19.4 1.6 26.7 1 8.1-0.6 24.3-9.8 27.8-19.3 3.4-9.5 3.4-17.7 2.3-19.7-.9-2-3.8-3.2-7.9-5.2z"/>
+    </svg>
+  </a>
+        </div>
+      </div>
+      <form class="form contact-form" action="#" method="post">
+        <label>
+          <span>Nombre*</span>
+          <input type="text" name="nombre" required>
+        </label>
+        <label>
+          <span>Mensaje*</span>
+          <textarea name="mensaje" rows="6" required></textarea>
+        </label>
+        <p class="req">* Indica los campos obligatorios</p>
+        <button class="btn btn--pill" type="submit">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-flex">
+      <p>© <span id="year">2025</span> Futuro en Movimiento. Todos los derechos reservados.</p>
+      <p><a href="#aviso">Aviso legal</a> | <a href="Politica-de-privacidad.html">Política de privacidad</a></p>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.nav');
+    if (toggle) {
+      toggle.addEventListener('click', () => nav.classList.toggle('nav--open'));
+    }
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
