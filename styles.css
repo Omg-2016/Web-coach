@@ -17,8 +17,18 @@
 html,body{height:100%}
 body{margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:var(--ink); background:#fff; line-height:1.6}
 h1,h2,h3{margin:0 0 10px}
-h1{font-family: Oswald, Inter, sans-serif; font-weight:700; letter-spacing:.4px; font-size: clamp(2rem, 1.2rem + 3vw, 3.4rem); color:#fff}
-h1 span{opacity:.85}
+/* Antes (global en blanco) */
+/* h1{ font-family: Oswald, Inter, sans-serif; font-weight:700; letter-spacing:.4px;
+       font-size: clamp(2rem, 1.2rem + 3vw, 3.4rem); color:#fff } */
+
+/* Después (sin color) */
+h1{
+  font-family: Oswald, Inter, sans-serif;
+  font-weight:700; letter-spacing:.4px;
+  font-size: clamp(2rem, 1.2rem + 3vw, 3.4rem);
+}
+
+
 h2{font-family: Oswald, Inter, sans-serif; font-weight:700; letter-spacing:.2px; font-size: clamp(1.4rem, 1rem + 1.6vw, 2.2rem)}
 h3{font-weight:700; font-size:1.15rem}
 p{margin:0 0 12px}
@@ -41,6 +51,7 @@ p{margin:0 0 12px}
 .hero--dark{background:#000}
 .hero-split{display:grid; grid-template-columns: 1fr 1fr; align-items:stretch; border-radius:24px; overflow:hidden; margin-top:16px}
 .hero-copy{background:linear-gradient(180deg, var(--g1), var(--g2)); padding:70px 7%; color:#fff}
+.hero-copy h1{ color:#fff; }
 .hero-copy .lead{color:#cfd6df; max-width:40ch; margin:10px 0 18px}
 .hero-photo{position:relative}
 .hero-photo img{display:block; width:100%; height:100%; object-fit:cover}
@@ -114,10 +125,15 @@ p{margin:0 0 12px}
 .socials a svg{ width:22px; height:22px; display:block; }
 .socials a:hover{ transform:translateY(-1px); }
 
-.socials a[aria-label="LinkedIn"]:hover{ color:#0A66C2; }
-.socials a[aria-label="Instagram"]:hover{ color:#E1306C; }
-.socials a[aria-label="TikTok"]:hover{ color:#25F4EE; }  /* toque cyan */
-.socials a[aria-label="WhatsApp"]:hover{ color:#25D366; }
+/* Hover con color de marca */
+.socials a[aria-label="LinkedIn"]:hover { color:#0A66C2; }
+.socials a[aria-label="Instagram"]:hover { color:#E1306C; }  /* toque magenta */
+.socials a[aria-label="TikTok"]:hover { color:#25F4EE; }     /* cyan TikTok */
+.socials a[aria-label="WhatsApp"]:hover { color:#25D366; }   /* verde WA */
+
+/* Opcional: microanimación */
+.socials a:hover { transform: translateY(-1px); transition: transform .15s ease, color .15s ease; }
+
 
 /* Responsive */
 @media (max-width: 1000px){
@@ -134,3 +150,5 @@ p{margin:0 0 12px}
 @media (max-width: 560px){
   .btn{width:100%; text-align:center}
 }
+html { scroll-behavior: smooth; }
+.nav a.active { background:#111; color:#fff; border-radius:10px; }
