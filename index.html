@@ -16,7 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
 
   <!-- Hoja de estilos -->
-  <link rel="stylesheet" href="styles.css?v=5">
+  <link rel="stylesheet" href="styles.css?v=7">
 
   <!-- Favicon -->
   <link rel="icon" href="favicon.png" sizes="any">
@@ -40,7 +40,7 @@
   <meta name="twitter:image" content="https://tudominio.es/og-image.jpg">
 
   <!-- Menú + acordeones -->
-  <script src="menu.js" defer></script>
+  <script src="menu.js?v=7" defer></script>
 </head>
 
 <body>
@@ -81,7 +81,7 @@
         <a href="#contacto">Contacto</a>
       </nav>
 
-      <!-- Menú móvil -->
+      <!-- Menú móvil (oculto por defecto con [hidden]) -->
       <nav id="navMobile" class="nav-mobile" aria-label="Principal móvil" hidden>
         <a href="index.html" aria-current="page">Inicio</a>
         <a href="sobre-mi.html">Sobre mí</a>
@@ -337,7 +337,7 @@
     </div>
   </footer>
 
-  <!-- ===== Scripts utilidades (año, scroll activo, prefill) ===== -->
+  <!-- ===== Scripts utilidades ===== -->
   <script>
     // Año dinámico
     const y = document.getElementById('y');
@@ -367,7 +367,7 @@
           btn.textContent = "Mostrar menos";
         } else {
           moreText.setAttribute("hidden", "true");
-          btn.textContent = "Más información";
+          btn.textContent = "Más información"; // <- FIX aquí
         }
       });
     });

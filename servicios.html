@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Servicios | Futuro en Movimiento</title>
   <meta name="description" content="Servicios de coaching: sesiones 1:1, procesos, talleres y trabajo con equipos. Claridad, motivación y acción.">
-  <link rel="stylesheet" href="styles.css?v=5">
+
+  <!-- Estilos globales -->
+  <link rel="stylesheet" href="styles.css?v=7">
+  <!-- Menú unificado (hamburguesa + dropdown derecha) -->
   <script src="menu.js" defer></script>
 
   <style>
@@ -101,7 +104,7 @@
         <span class="brand-mark" aria-hidden="true">⬤</span>
         <span class="brand-text">
           <strong>Futuro en Movimiento</strong>
-          <small>Coaching para claridad y confianza</small>
+          <small>Santiago Suárez · Coach</small>
         </span>
       </a>
 
@@ -111,14 +114,14 @@
       </button>
 
       <!-- Menú escritorio -->
-      <nav class="nav-desktop" aria-label="Principal">
+      <nav class="nav nav-desktop" aria-label="Principal">
         <a href="index.html">Inicio</a>
         <a href="sobre-mi.html">Sobre mí</a>
         <a href="servicios.html" aria-current="page">Servicios</a>
         <a href="index.html#contacto">Contacto</a>
       </nav>
 
-      <!-- Menú móvil -->
+      <!-- Menú móvil (dropdown a la derecha; oculto por defecto) -->
       <nav id="navMobile" class="nav-mobile" aria-label="Principal móvil" hidden>
         <a href="index.html">Inicio</a>
         <a href="sobre-mi.html">Sobre mí</a>
@@ -292,7 +295,9 @@
   </footer>
 
   <script>
-    const y = document.getElementById('y'); if (y) y.textContent = new Date().getFullYear();
+    const y = document.getElementById('y');
+    if (y) y.textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
+
