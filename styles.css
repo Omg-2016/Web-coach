@@ -17,18 +17,13 @@
 html,body{height:100%}
 body{margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:var(--ink); background:#fff; line-height:1.6}
 h1,h2,h3{margin:0 0 10px}
-/* Antes (global en blanco) */
-/* h1{ font-family: Oswald, Inter, sans-serif; font-weight:700; letter-spacing:.4px;
-       font-size: clamp(2rem, 1.2rem + 3vw, 3.4rem); color:#fff } */
 
-/* Después (sin color) */
+/* Títulos */
 h1{
   font-family: Oswald, Inter, sans-serif;
   font-weight:700; letter-spacing:.4px;
   font-size: clamp(2rem, 1.2rem + 3vw, 3.4rem);
 }
-
-
 h2{font-family: Oswald, Inter, sans-serif; font-weight:700; letter-spacing:.2px; font-size: clamp(1.4rem, 1rem + 1.6vw, 2.2rem)}
 h3{font-weight:700; font-size:1.15rem}
 p{margin:0 0 12px}
@@ -60,9 +55,8 @@ p{margin:0 0 12px}
   position:absolute;
   inset:0;
   background:linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.25));
-  mix-blend-mode: multiply;   /* correcto */
+  mix-blend-mode: multiply;
 }
-
 
 /* Split blocks alternos */
 .split-block{padding:72px 0; background:#fff}
@@ -97,13 +91,10 @@ p{margin:0 0 12px}
 .contact-info h2{color:#fff}
 /* Enlaces dentro de la zona de contacto */
 .contact-band a {
-  color: #3d6fd4;        /* mismo gris claro que tu texto */
-  text-decoration: none; /* opcional: quitar el subrayado */
+  color: #3d6fd4;
+  text-decoration: none;
 }
-
-.contact-band a:hover {
-  color: #1a3d7c;        /* azul corporativo al pasar el ratón */
-}
+.contact-band a:hover { color: #1a3d7c; }
 
 .socials{display:flex; gap:14px; font-family: "Font Awesome 6 Free", system-ui, sans-serif}
 .socials a{display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:8px; background:#111; color:#e5e7eb; text-decoration:none}
@@ -121,11 +112,12 @@ p{margin:0 0 12px}
 .btn--pill{border-radius:999px}
 
 /* Footer */
-.site-footer{background:#0b1020; color:#cbd5e1; padding:18px 0}
-.footer-flex{display:flex; align-items:center; justify-content:space-between}
+.site-footer{background:#0b1020; color:#cbd5e1; padding:30px 0}
+.footer-flex{display:flex; align-items:center; justify-content:space-between; max-width:1100px; margin:0 auto; padding:0 20px}
 .site-footer a{color:#cbd5e1; text-decoration:none}
 .site-footer a:hover{text-decoration:underline}
 
+/* Redes footer */
 .socials { display:flex; gap:14px; }
 .socials a{
   display:inline-flex; align-items:center; justify-content:center;
@@ -137,15 +129,154 @@ p{margin:0 0 12px}
 
 /* Hover con color de marca */
 .socials a[aria-label="LinkedIn"]:hover { color:#0A66C2; }
-.socials a[aria-label="Instagram"]:hover { color:#E1306C; }  /* toque magenta */
-.socials a[aria-label="TikTok"]:hover { color:#25F4EE; }     /* cyan TikTok */
-.socials a[aria-label="WhatsApp"]:hover { color:#25D366; }   /* verde WA */
+.socials a[aria-label="Instagram"]:hover { color:#E1306C; }
+.socials a[aria-label="TikTok"]:hover { color:#25F4EE; }
+.socials a[aria-label="WhatsApp"]:hover { color:#25D366; }
 
 /* Opcional: microanimación */
-.socials a:hover { transform: translateY(-1px); transition: transform .15s ease, color .15s ease; }
+.socials a:hover { transition: transform .15s ease, color .15s ease; }
 
+/* Slogan del footer */
+.footer-slogan{
+  display:block;
+  text-align:center;
+  font-family: Oswald, Inter, system-ui, sans-serif;
+  font-size: 1.6rem;
+  font-weight:700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 30px auto;
+  padding: 0 20px;
+  max-width: 1100px;
+  color: var(--brown); /* fallback */
+}
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .footer-slogan{
+    background: linear-gradient(90deg, var(--blue), var(--brown));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* ===== PRESENTACIÓN / HOME ===== */
+.intro-section{ background:#fff; padding: 64px 0; }
+.intro-title{
+  font-family: Oswald, Inter, sans-serif;
+  font-size: clamp(1.7rem, 1.2rem + 2vw, 2.4rem);
+  color: var(--g1);
+  margin-bottom: 10px;
+}
+.intro-lead{ font-size: 1.05rem; color:#394150; margin-bottom: 10px; }
+.intro-block p{ color:#394150; }
+.intro-cta{ margin-top: 16px; }
+
+.section-kicker{
+  font-family: Oswald, Inter, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  margin-bottom: 14px;
+  color: var(--g2);
+}
+
+.audience-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.audience-card{
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: var(--radius);
+  padding: 18px;
+}
+.audience-card h4{ margin-bottom: 6px; font-weight:700; color:#0b1222; }
+
+/* ===== BENEFICIOS (versión final) ===== */
+
+/* Caja azul oscura con “luces” laterales */
+.benefits-box{
+  position: relative;
+  background: var(--blue);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.14);
+  margin-top: 16px;
+  color: #fff;
+  overflow: hidden;
+}
+.benefits-box::before,
+.benefits-box::after{
+  content:"";
+  position:absolute;
+  top: -20%;
+  width: 280px; height: 280px;
+  border-radius: 50%;
+  filter: blur(18px);
+  opacity: .25;
+  animation: floatY 10s ease-in-out infinite;
+}
+.benefits-box::before{
+  left: -120px;
+  background: radial-gradient(closest-side, #ffffff, transparent 70%);
+}
+.benefits-box::after{
+  right: -120px;
+  background: radial-gradient(closest-side, var(--blue-700), transparent 70%);
+  animation-delay: -5s;
+}
+@keyframes floatY{
+  0%{ transform: translateY(-10%); }
+  50%{ transform: translateY(10%); }
+  100%{ transform: translateY(-10%); }
+}
+
+/* Lista centrada + checks sin solaparse */
+.benefits-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  gap:14px;
+  justify-items:center;
+  text-align:center;
+}
+.benefits-list li{
+  color:#fff;
+  font-size:1.08rem;
+  padding-left:0;
+  position: static;               /* evita el posicionamiento relativo anterior */
+}
+.benefits-list li::before{
+  content:"✔";
+  position: static;               /* override del viejo absolute */
+  display:inline-block;
+  margin-right:.55rem;
+  font-weight:700;
+  font-size:1.2rem;
+  color: var(--brown);
+  transform: translateY(-1px);
+}
+
+/* 2 columnas en desktop, 1 en móvil */
+@media (min-width: 880px){
+  .benefits-list{ grid-template-columns: 1fr 1fr; }
+}
+
+/* Separador sutil */
+.divider{
+  border:0;
+  height:1px;
+  background: linear-gradient(90deg, transparent, #e5e7eb, transparent);
+  margin: 28px 0;
+}
+
+/* CTA cierre */
+.closing{ margin-top:28px; text-align:center; }
+.closing-quote{ font-size:1.1rem; color:#111827; margin-bottom:12px; }
+.closing-cta .btn{ font-weight:700; }
 
 /* Responsive */
+@media (max-width: 860px){
+  .audience-grid{ grid-template-columns:1fr; }
+}
 @media (max-width: 1000px){
   .banner-text{grid-column: 1 / -1; margin: -80px 5% 0;}
 }
@@ -160,5 +291,6 @@ p{margin:0 0 12px}
 @media (max-width: 560px){
   .btn{width:100%; text-align:center}
 }
+
 html { scroll-behavior: smooth; }
 .nav a.active { background:#111; color:#fff; border-radius:10px; }
