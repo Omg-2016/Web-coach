@@ -38,6 +38,9 @@
   <meta name="twitter:title" content="Futuro en Movimiento | Coaching — Santiago Suárez">
   <meta name="twitter:description" content="Sesiones 1:1, procesos, talleres y trabajo con equipos.">
   <meta name="twitter:image" content="https://tudominio.es/og-image.jpg">
+
+  <!-- Menú unificado -->
+  <script src="menu.js" defer></script>
 </head>
 
 <body>
@@ -54,23 +57,37 @@
     </div>
   </div>
 
-  <!-- Header / Navbar -->
+  <!-- Header / Navbar unificado -->
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="#inicio" aria-label="Ir al inicio">
+      <a class="brand logo" href="index.html" aria-label="Ir al inicio">
         <span class="brand-mark" aria-hidden="true">⬤</span>
         <span class="brand-text">
           <strong>Futuro en Movimiento</strong>
           <small>Santiago Suárez · Coach</small>
         </span>
       </a>
-      <nav class="nav" aria-label="Principal">
-        <a href="index.html">Inicio</a>
+
+      <!-- Botón hamburguesa -->
+      <button class="hamburger nav-toggle" aria-controls="navMobile" aria-expanded="false" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+
+      <!-- Menú escritorio -->
+      <nav class="nav nav-desktop" aria-label="Principal">
+        <a href="index.html" aria-current="page">Inicio</a>
         <a href="sobre-mi.html">Sobre mí</a>
         <a href="servicios.html">Servicios</a>
         <a href="#contacto">Contacto</a>
       </nav>
-      <button class="nav-toggle" aria-label="Abrir menú">☰</button>
+
+      <!-- Menú móvil -->
+      <nav id="navMobile" class="nav-mobile" aria-label="Principal móvil" hidden>
+        <a href="index.html" aria-current="page">Inicio</a>
+        <a href="sobre-mi.html">Sobre mí</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
     </div>
   </header>
 
@@ -153,7 +170,7 @@
     </div>
   </section>
 
-  <!-- BLOQUES / BANNERS (… igual que tenías) -->
+  <!-- BLOQUES / BANNERS -->
   <section class="split-block">
     <div class="container split-50">
       <figure class="split-img">
@@ -236,8 +253,7 @@
         <p><strong>Ubicación:</strong> Barcelona · Sesiones online y presenciales</p>
 
         <div class="socials">
-          <!-- (iconos tal cual) -->
-          <!-- ... -->
+          <!-- iconos -->
         </div>
       </div>
 
@@ -277,20 +293,15 @@
     </div>
   </footer>
 
-  <!-- Script -->
+  <!-- Script de utilidades de la página -->
   <script>
-    // Menú responsive
-    const toggle = document.querySelector('.nav-toggle');
-    const nav = document.querySelector('.nav');
-    if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('nav--open'));
-
     // Año dinámico
     const y = document.getElementById('y');
     if (y) y.textContent = new Date().getFullYear();
 
-    // Resaltar link activo al hacer scroll (solo anclas internas)
+    // Resaltar link activo al hacer scroll (anclas internas)
     const sections = document.querySelectorAll('section[id]');
-    const links = document.querySelectorAll('.nav a[href^="#"]');
+    const links = document.querySelectorAll('.nav-desktop a[href^="#"], .nav-mobile a[href^="#"]');
     const onScroll = () => {
       let current = '';
       const top = window.scrollY + 100;
@@ -302,43 +313,40 @@
     window.addEventListener('scroll', onScroll, { passive:true });
     onScroll();
 
-  // --- PREFILL FORM DESDE SERVICIOS (?op=...) ---
-  (function () {
-    const params = new URLSearchParams(window.location.search);
-    const op = params.get('op');
-    if (!op) return;
+    // --- PREFILL FORM DESDE SERVICIOS (?op=...) ---
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const op = params.get('op');
+      if (!op) return;
 
-    const contactSection = document.getElementById('contacto');
-    const form = contactSection ? contactSection.querySelector('form') : null;
-    if (!form) return;
+      const contactSection = document.getElementById('contacto');
+      const form = contactSection ? contactSection.querySelector('form') : null;
+      if (!form) return;
 
-    const textarea = form.querySelector('textarea[name="mensaje"]');
-    if (!textarea) return;
+      const textarea = form.querySelector('textarea[name="mensaje"]');
+      if (!textarea) return;
 
-    const textos = {
-      sesion:   "Hola, me interesa reservar una Sesión individual (60–75 min).",
-      proceso5: "Hola, me interesa iniciar el Proceso de 5 sesiones.",
-      taller:   "Hola, me gustaría solicitar una propuesta para un Taller / Trabajo con equipos."
-    };
+      const textos = {
+        sesion:   "Hola, me interesa reservar una Sesión individual (60–75 min).",
+        proceso5: "Hola, me interesa iniciar el Proceso de 5 sesiones.",
+        taller:   "Hola, me gustaría solicitar una propuesta para un Taller / Trabajo con equipos."
+      };
 
-    if (textos[op]) {
-      textarea.value = textos[op] + "\n\nCuéntame disponibilidad y próximos pasos, por favor.";
-      // Campo oculto por si quieres registrar el motivo en el envío
-      const hidden = document.createElement('input');
-      hidden.type = 'hidden';
-      hidden.name = 'motivo';
-      hidden.value = op;
-      form.appendChild(hidden);
+      if (textos[op]) {
+        textarea.value = textos[op] + "\n\nCuéntame disponibilidad y próximos pasos, por favor.";
+        const hidden = document.createElement('input');
+        hidden.type = 'hidden';
+        hidden.name = 'motivo';
+        hidden.value = op;
+        form.appendChild(hidden);
 
-      // Si no venías ya con #contacto, te llevo suave al formulario
-      if (location.hash !== '#contacto' && contactSection.scrollIntoView) {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
+        if (location.hash !== '#contacto' && contactSection.scrollIntoView) {
+          contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+        textarea.focus();
       }
-      // Foco para que el usuario siga escribiendo si quiere
-      textarea.focus();
-    }
-  })();
-</script>
+    })();
+  </script>
 
 </body>
 </html>

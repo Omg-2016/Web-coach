@@ -8,6 +8,8 @@
 
   <!-- Estilos globales -->
   <link rel="stylesheet" href="styles.css?v=5">
+  <!-- Menú unificado -->
+  <script src="menu.js" defer></script>
 
   <style>
     /* ===== Estilos locales SOLO para esta página ===== */
@@ -71,20 +73,34 @@
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- Header unificado -->
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="Volver al inicio">
-        <span class="brand-mark"></span>
+      <a class="brand logo" href="index.html" aria-label="Volver al inicio">
+        <span class="brand-mark" aria-hidden="true">⬤</span>
         <span class="brand-text">
           <strong>Futuro en Movimiento</strong>
           <small>Coaching para claridad y confianza</small>
         </span>
       </a>
-      <button class="nav-toggle" aria-label="Abrir menú">☰</button>
-      <nav class="nav">
+
+      <!-- Botón hamburguesa -->
+      <button class="hamburger nav-toggle" aria-controls="navMobile" aria-expanded="false" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+
+      <!-- Menú escritorio -->
+      <nav class="nav-desktop" aria-label="Principal">
         <a href="index.html">Inicio</a>
-        <a href="sobre-mi.html" class="is-active">Sobre mí</a>
+        <a href="sobre-mi.html" aria-current="page">Sobre mí</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="index.html#contacto">Contacto</a>
+      </nav>
+
+      <!-- Menú móvil -->
+      <nav id="navMobile" class="nav-mobile" aria-label="Principal móvil" hidden>
+        <a href="index.html">Inicio</a>
+        <a href="sobre-mi.html" aria-current="page">Sobre mí</a>
         <a href="servicios.html">Servicios</a>
         <a href="index.html#contacto">Contacto</a>
       </nav>
@@ -142,7 +158,7 @@
           </ul>
         </div>
         <div>
-          <img src="img/foto manos.jpg" alt="Valores del coaching">
+          <img src="img/foto%20manos.jpg" alt="Valores del coaching">
         </div>
       </div>
 
@@ -153,50 +169,48 @@
   </section>
 
   <section class="about-section">
-  <div class="container">
-    <div class="training-grid">
-      <!-- Texto -->
-      <div class="training-card">
-        <h2>Formación y experiencia</h2>
-        <p>
-          Mi trabajo se apoya en una formación continua y en la práctica real con personas y equipos.
-          Combino herramientas de <strong>coaching personal</strong>, <strong>inteligencia emocional</strong> y
-          <strong>diseño de hábitos</strong> para que el proceso sea claro, medible y aplicable desde el primer día.
-        </p>
+    <div class="container">
+      <div class="training-grid">
+        <!-- Texto -->
+        <div class="training-card">
+          <h2>Formación y experiencia</h2>
+          <p>
+            Mi trabajo se apoya en una formación continua y en la práctica real con personas y equipos.
+            Combino herramientas de <strong>coaching personal</strong>, <strong>inteligencia emocional</strong> y
+            <strong>diseño de hábitos</strong> para que el proceso sea claro, medible y aplicable desde el primer día.
+          </p>
 
-        <ul class="training-list">
-          <li><strong>2024</strong> · Certificado de Coaching Personal — <em>[Escuela/Institución]</em> (### h).</li>
-          <li><strong>2023</strong> · Orientación vocacional y toma de decisiones — <em>[Centro]</em>.</li>
-          <li><strong>2022</strong> · Comunicación No Violenta e Inteligencia Emocional — <em>[Programa]</em>.</li>
-        </ul>
+          <ul class="training-list">
+            <li><strong>2024</strong> · Certificado de Coaching Personal — <em>[Escuela/Institución]</em> (### h).</li>
+            <li><strong>2023</strong> · Orientación vocacional y toma de decisiones — <em>[Centro]</em>.</li>
+            <li><strong>2022</strong> · Comunicación No Violenta e Inteligencia Emocional — <em>[Programa]</em>.</li>
+          </ul>
 
-        <div class="training-badges">
-          <span>Coaching personal</span>
-          <span>Inteligencia emocional</span>
-          <span>Orientación vocacional</span>
-          <span>Diseño de hábitos</span>
-          <span>Trabajo con equipos</span>
+          <div class="training-badges">
+            <span>Coaching personal</span>
+            <span>Inteligencia emocional</span>
+            <span>Orientación vocacional</span>
+            <span>Diseño de hábitos</span>
+            <span>Trabajo con equipos</span>
+          </div>
+
+          <hr class="divider" aria-hidden="true">
+
+          <ul>
+            <li>Procesos 1:1 con adolescentes y adultos.</li>
+            <li>Talleres de motivación y toma de decisiones.</li>
+            <li>Trabajo con equipos en dinámicas de comunicación y objetivos.</li>
+          </ul>
         </div>
 
-        <hr class="divider" aria-hidden="true">
-
-        <ul>
-          <li>Procesos 1:1 con adolescentes y adultos.</li>
-          <li>Talleres de motivación y toma de decisiones.</li>
-          <li>Trabajo con equipos en dinámicas de comunicación y objetivos.</li>
-        </ul>
+        <!-- Certificado -->
+        <figure class="certificate-figure">
+          <img src="img/certificado.png" alt="Certificado de coaching personal" loading="lazy">
+          <figcaption>Certificación Internacional de Experto en Coaching Personal y Ejecutivo — Escuela de EFIC, 2024</figcaption>
+        </figure>
       </div>
-
-      <!-- Certificado -->
-
-      <figure class="certificate-figure">
-        <img src="img/certificado.png" alt="Certificado de coaching personal" loading="lazy">
-        <figcaption> Certificación Internacional de Experto en Coaching Personal y Ejecutivo — Escuela de EFIC, 2024</figcaption>
-      </figure>
     </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- Cita final -->
   <section class="about-section">
@@ -221,6 +235,7 @@
         <p>
           <a href="aviso-legal.html">Aviso legal</a> ·
           <a href="Politica-de-privacidad.html">Política de privacidad</a> ·
+          <a href="Politica-cookies.html">Política de Cookies</a> ·
           <a href="#" onclick="UC_UI && UC_UI.showSecondLayer && UC_UI.showSecondLayer(); return false;">Configurar cookies</a>
         </p>
       </div>
@@ -228,11 +243,6 @@
   </footer>
 
   <script>
-    // Menú responsive
-    const toggle = document.querySelector('.nav-toggle');
-    const nav = document.querySelector('.nav');
-    if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('nav--open'));
-
     // Año dinámico
     const y = document.getElementById('y');
     if (y) y.textContent = new Date().getFullYear();
