@@ -254,6 +254,59 @@ p{margin:0 0 12px}
   color: var(--brown);
   transform: translateY(-1px);
 }
+/* Footer base (mismo en todas) */
+.site-footer{
+  background:#0b1020;
+  color:#cbd5e1;
+  padding: 30px 0 34px; /* un poco más abajo para respirar */
+}
+
+/* Asegura mismo marco lateral que en index */
+.site-footer .container{
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Slogan centrado + degradado */
+.footer-slogan{
+  text-align:center;
+  font-family: Oswald, Inter, system-ui, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 26px auto 16px;   /* mismo espacio arriba/abajo */
+  color: var(--brown);      /* fallback si no hay clip */
+}
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .footer-slogan{
+    background: linear-gradient(90deg, var(--blue), var(--brown));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* Línea inferior del footer (copyright + links) */
+.footer-flex{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 20px;
+}
+.footer-flex p{ margin:0; }
+
+/* Responsive: apilar en móviles */
+@media (max-width: 720px){
+  .footer-flex{
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+}
+
 
 /* 2 columnas en desktop, 1 en móvil */
 @media (min-width: 880px){
