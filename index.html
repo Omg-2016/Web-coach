@@ -39,13 +39,13 @@
   <meta name="twitter:description" content="Sesiones 1:1, procesos, talleres y trabajo con equipos.">
   <meta name="twitter:image" content="https://tudominio.es/og-image.jpg">
 
-  <!-- Menú unificado -->
+  <!-- Menú + acordeones -->
   <script src="menu.js" defer></script>
 </head>
 
 <body>
 
-  <!-- Cookie Banner (dentro del body) -->
+  <!-- Cookie Banner -->
   <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
     <p>
       Usamos cookies necesarias para que el sitio funcione y, opcionalmente, de analítica para mejorar la experiencia.
@@ -57,7 +57,7 @@
     </div>
   </div>
 
-  <!-- Header / Navbar unificado -->
+  <!-- Header / Navbar -->
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand logo" href="index.html" aria-label="Ir al inicio">
@@ -170,7 +170,7 @@
     </div>
   </section>
 
-  <!-- BLOQUES / BANNERS -->
+  <!-- ===== BLOQUES / BANNERS con ACORDEÓN ===== -->
   <section class="split-block">
     <div class="container split-50">
       <figure class="split-img">
@@ -179,7 +179,14 @@
       <div class="split-text">
         <h2 class="kicker">Ayudar a las personas a descubrir todo su potencial</h2>
         <p>Sesiones claras y prácticas para ganar foco, gestionar emociones y pasar a la acción con confianza.</p>
-        <a class="btn btn--pill" href="servicios.html">Más información</a>
+
+        <button class="btn btn--pill more-toggle" aria-expanded="false" aria-controls="more-1">Más información</button>
+        <div id="more-1" class="more-panel" hidden>
+          <p>En estas sesiones trabajamos objetivos concretos, identificamos bloqueos y diseñamos un plan de acción realista. Incluye ejercicios prácticos y seguimiento entre sesiones.</p>
+          <p style="margin-top:8px">
+            <a class="btn btn--sm btn--pill" href="servicios.html">Ver todos los servicios</a>
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -189,7 +196,14 @@
       <div class="split-text">
         <h2 class="kicker">¿Le interesa la formación de equipos?</h2>
         <p>Trabajo con centros y empresas para mejorar coordinación, comunicación y resultados mediante dinámicas vivenciales.</p>
-        <a class="btn btn--pill" href="servicios.html">Más información</a>
+
+        <button class="btn btn--pill more-toggle" aria-expanded="false" aria-controls="more-2">Más información</button>
+        <div id="more-2" class="more-panel" hidden>
+          <p>Diseñamos experiencias a medida para equipos que quieren mejorar confianza, comunicación y eficiencia. El proceso incluye dinámicas prácticas, feedback continuo y un plan de seguimiento.</p>
+          <p style="margin-top:8px">
+            <a class="btn btn--sm btn--pill" href="servicios.html">Ver opciones de talleres</a>
+          </p>
+        </div>
       </div>
       <figure class="split-img">
         <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1600&auto=format&fit=crop" alt="Equipo en formación"/>
@@ -197,26 +211,55 @@
     </div>
   </section>
 
+  <!-- ===== CARDS con desplegable ===== -->
   <section id="servicios" class="cards-band">
     <div class="container cards-3">
+      <!-- Card 1 -->
       <article class="band-card dark">
         <h3>Coaching para el desarrollo personal</h3>
         <p>Definir objetivos, romper bloqueos y crear hábitos sostenibles.</p>
-        <a class="btn btn--sm btn--pill" href="#contacto">Más información</a>
+        <button class="btn btn--sm btn--pill toggle-more">Más información</button>
+        <div class="more-text" hidden>
+          <p>
+            En estas sesiones aprenderás a identificar tus patrones limitantes, 
+            trabajarás con herramientas prácticas y diseñarás un plan de acción 
+            a tu medida. El objetivo es que logres avanzar con mayor confianza 
+            y motivación.
+          </p>
+        </div>
       </article>
+
+      <!-- Card 2 -->
       <article class="band-card mid">
         <h3>Planificación académico-profesional</h3>
         <p>Orientación, fortalezas y ruta práctica hacia metas de estudio y carrera.</p>
-        <a class="btn btn--sm btn--pill" href="#contacto">Más información</a>
+        <button class="btn btn--sm btn--pill toggle-more">Más información</button>
+        <div class="more-text" hidden>
+          <p>
+            Te acompaño en la toma de decisiones académicas y profesionales, 
+            analizando tus talentos y valores para que diseñes un camino realista, 
+            claro y motivador.
+          </p>
+        </div>
       </article>
+
+      <!-- Card 3 -->
       <article class="band-card light">
         <h3>Autodescubrimiento y estrategia</h3>
         <p>Conectar con valores, gestionar emociones y decidir con claridad.</p>
-        <a class="btn btn--sm btn--pill" href="#contacto">Más información</a>
+        <button class="btn btn--sm btn--pill toggle-more">Más información</button>
+        <div class="more-text" hidden>
+          <p>
+            Profundizamos en tu autoconocimiento con dinámicas de coaching 
+            e inteligencia emocional para que tengas mayor claridad en tus 
+            decisiones y mayor bienestar en tu día a día.
+          </p>
+        </div>
       </article>
     </div>
   </section>
 
+  <!-- ===== BANNER ===== -->
   <section class="image-banner">
     <div class="container banner-wrap">
       <figure class="banner-img">
@@ -230,6 +273,7 @@
     </div>
   </section>
 
+  <!-- ===== BLOQUE FINAL ===== -->
   <section class="split-block">
     <div class="container split-50">
       <div class="split-text">
@@ -243,7 +287,7 @@
     </div>
   </section>
 
-  <!-- CONTACTO -->
+  <!-- ===== CONTACTO ===== -->
   <section id="contacto" class="contact-band">
     <div class="container contact-grid">
       <div class="contact-info">
@@ -276,7 +320,7 @@
     </div>
   </section>
 
-  <!-- FOOTER unificado -->
+  <!-- ===== FOOTER ===== -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-slogan">
@@ -293,7 +337,7 @@
     </div>
   </footer>
 
-  <!-- Script de utilidades de la página -->
+  <!-- ===== Scripts utilidades (año, scroll activo, prefill) ===== -->
   <script>
     // Año dinámico
     const y = document.getElementById('y');
@@ -312,6 +356,21 @@
     };
     window.addEventListener('scroll', onScroll, { passive:true });
     onScroll();
+
+    // Desplegable en cards oscuras (Más información)
+    document.querySelectorAll(".toggle-more").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const moreText = btn.nextElementSibling;
+        const isHidden = moreText.hasAttribute("hidden");
+        if (isHidden) {
+          moreText.removeAttribute("hidden");
+          btn.textContent = "Mostrar menos";
+        } else {
+          moreText.setAttribute("hidden", "true");
+          btn.textContent = "Más información";
+        }
+      });
+    });
 
     // --- PREFILL FORM DESDE SERVICIOS (?op=...) ---
     (function () {
