@@ -184,7 +184,7 @@
         <div id="more-1" class="more-panel" hidden>
           <p>En estas sesiones trabajamos objetivos concretos, identificamos bloqueos y diseñamos un plan de acción realista. Incluye ejercicios prácticos y seguimiento entre sesiones.</p>
           <p style="margin-top:8px">
-            <a class="btn btn--sm btn--pill" href="servicios.html">Ver todos los servicios</a>
+            <a class="btn btn--sm btn--pill" href="servicios.html#servicios">Ver todos los servicios</a>
           </p>
         </div>
       </div>
@@ -201,7 +201,7 @@
         <div id="more-2" class="more-panel" hidden>
           <p>Diseñamos experiencias a medida para equipos que quieren mejorar confianza, comunicación y eficiencia. El proceso incluye dinámicas prácticas, feedback continuo y un plan de seguimiento.</p>
           <p style="margin-top:8px">
-            <a class="btn btn--sm btn--pill" href="servicios.html">Ver opciones de talleres</a>
+            <a class="btn btn--sm btn--pill" href="servicios.html#servicios">Ver todos los servicios</a>
           </p>
         </div>
       </div>
@@ -226,6 +226,7 @@
             a tu medida. El objetivo es que logres avanzar con mayor confianza 
             y motivación.
           </p>
+          
         </div>
       </article>
 
@@ -240,6 +241,7 @@
             analizando tus talentos y valores para que diseñes un camino realista, 
             claro y motivador.
           </p>
+
         </div>
       </article>
 
@@ -254,24 +256,13 @@
             e inteligencia emocional para que tengas mayor claridad en tus 
             decisiones y mayor bienestar en tu día a día.
           </p>
+
         </div>
       </article>
     </div>
   </section>
 
-  <!-- ===== BANNER ===== -->
-  <section class="image-banner">
-    <div class="container banner-wrap">
-      <figure class="banner-img">
-        <img src="https://images.unsplash.com/photo-1503424886307-b090341d25d1?q=80&w=2000&auto=format&fit=crop" alt="Sala de conferencias preparada"/>
-      </figure>
-      <div class="banner-text">
-        <h2>Liberar el potencial y hacer posible una vida plena</h2>
-        <p>Procesos de 6–10 sesiones con métricas, acciones entre sesiones y seguimiento para medir el avance.</p>
-        <a class="btn btn--pill" href="https://wa.me/34600000000" target="_blank" rel="noopener">Contactar ahora</a>
-      </div>
-    </div>
-  </section>
+
 
   <!-- ===== BLOQUE FINAL ===== -->
   <section class="split-block">
@@ -357,17 +348,38 @@
     window.addEventListener('scroll', onScroll, { passive:true });
     onScroll();
 
-    // Desplegable en cards oscuras (Más información)
-    document.querySelectorAll(".toggle-more").forEach(btn => {
+    // --- ACORDEONES / "MÁS INFORMACIÓN" ---
+    const toggles = document.querySelectorAll(".more-toggle, .toggle-more");
+    toggles.forEach(btn => {
       btn.addEventListener("click", () => {
-        const moreText = btn.nextElementSibling;
-        const isHidden = moreText.hasAttribute("hidden");
-        if (isHidden) {
-          moreText.removeAttribute("hidden");
-          btn.textContent = "Mostrar menos";
-        } else {
-          moreText.setAttribute("hidden", "true");
-          btn.textContent = "Más información"; // <- FIX aquí
+        // Botón de tipo split-block (usa aria-controls)
+        if (btn.classList.contains("more-toggle")) {
+          const panelId = btn.getAttribute("aria-controls");
+          const panel = document.getElementById(panelId);
+          if (!panel) return;
+          const isHidden = panel.hasAttribute("hidden");
+          if (isHidden) {
+            panel.removeAttribute("hidden");
+            btn.setAttribute("aria-expanded", "true");
+            btn.textContent = "Mostrar menos";
+          } else {
+            panel.setAttribute("hidden", "true");
+            btn.setAttribute("aria-expanded", "false");
+            btn.textContent = "Más información";
+          }
+        }
+        // Botón dentro de una card (siguiente hermano)
+        if (btn.classList.contains("toggle-more")) {
+          const moreText = btn.nextElementSibling;
+          if (!moreText) return;
+          const isHidden = moreText.hasAttribute("hidden");
+          if (isHidden) {
+            moreText.removeAttribute("hidden");
+            btn.textContent = "Mostrar menos";
+          } else {
+            moreText.setAttribute("hidden", "true");
+            btn.textContent = "Más información";
+          }
         }
       });
     });
