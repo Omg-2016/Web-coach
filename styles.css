@@ -95,6 +95,16 @@ p{margin:0 0 12px}
 .contact-band{background:#20242e; color:#e5e7eb; padding:60px 0}
 .contact-grid{display:grid; grid-template-columns: 1fr 1fr; gap:40px; align-items:start}
 .contact-info h2{color:#fff}
+/* Enlaces dentro de la zona de contacto */
+.contact-band a {
+  color: #3d6fd4;        /* mismo gris claro que tu texto */
+  text-decoration: none; /* opcional: quitar el subrayado */
+}
+
+.contact-band a:hover {
+  color: #1a3d7c;        /* azul corporativo al pasar el ratón */
+}
+
 .socials{display:flex; gap:14px; font-family: "Font Awesome 6 Free", system-ui, sans-serif}
 .socials a{display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:8px; background:#111; color:#e5e7eb; text-decoration:none}
 
