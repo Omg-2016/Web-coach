@@ -301,6 +301,44 @@
     };
     window.addEventListener('scroll', onScroll, { passive:true });
     onScroll();
-  </script>
+
+  // --- PREFILL FORM DESDE SERVICIOS (?op=...) ---
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+    const op = params.get('op');
+    if (!op) return;
+
+    const contactSection = document.getElementById('contacto');
+    const form = contactSection ? contactSection.querySelector('form') : null;
+    if (!form) return;
+
+    const textarea = form.querySelector('textarea[name="mensaje"]');
+    if (!textarea) return;
+
+    const textos = {
+      sesion:   "Hola, me interesa reservar una Sesión individual (60–75 min).",
+      proceso5: "Hola, me interesa iniciar el Proceso de 5 sesiones.",
+      taller:   "Hola, me gustaría solicitar una propuesta para un Taller / Trabajo con equipos."
+    };
+
+    if (textos[op]) {
+      textarea.value = textos[op] + "\n\nCuéntame disponibilidad y próximos pasos, por favor.";
+      // Campo oculto por si quieres registrar el motivo en el envío
+      const hidden = document.createElement('input');
+      hidden.type = 'hidden';
+      hidden.name = 'motivo';
+      hidden.value = op;
+      form.appendChild(hidden);
+
+      // Si no venías ya con #contacto, te llevo suave al formulario
+      if (location.hash !== '#contacto' && contactSection.scrollIntoView) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+      // Foco para que el usuario siga escribiendo si quiere
+      textarea.focus();
+    }
+  })();
+</script>
+
 </body>
 </html>
