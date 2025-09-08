@@ -19,18 +19,18 @@
   <link rel="stylesheet" href="styles.css?v=7">
 
   <!-- Favicon -->
-  <link rel="icon" href="favicon.png" sizes="any">
-  <link rel="apple-touch-icon" href="favicon.png">
+  <link rel="icon" href="img/logo-BN.svg" sizes="any">
+  <link rel="apple-touch-icon" href="img/logo-BN.svg">
 
   <!-- SEO básico -->
   <meta name="author" content="Santiago Suárez">
-  <link rel="canonical" href="https://tudominio.es/">
+  <link rel="canonical" href="https://futuroenmovimiento.es/">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Futuro en Movimiento | Coaching — Santiago Suárez">
   <meta property="og:description" content="Coaching emocional y motivacional para adolescentes, familias y equipos: sesiones 1:1, procesos, talleres y equipos.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://tudominio.es/">
+  <meta property="og:url" content="https://futuroenmovimiento.es/">
   <meta property="og:image" content="https://tudominio.es/og-image.jpg">
 
   <!-- Twitter Card -->
@@ -60,13 +60,13 @@
   <!-- Header / Navbar -->
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand logo" href="index.html" aria-label="Ir al inicio">
-        <span class="brand-mark" aria-hidden="true">⬤</span>
-        <span class="brand-text">
-          <strong>Futuro en Movimiento</strong>
-          <small>Santiago Suárez · Coach</small>
-        </span>
-      </a>
+    <a href="index.html" class="brand">
+      <img src="img/logo-BN.svg" alt="Futuro en Movimiento" class="brand-logo">
+      <span class="brand-text">
+        <strong>Futuro en Movimiento</strong>
+        <small>Santiago Suárez · Coach</small>
+      </span>
+    </a>
 
       <!-- Botón hamburguesa -->
       <button class="hamburger nav-toggle" aria-controls="navMobile" aria-expanded="false" aria-label="Abrir menú">
@@ -95,6 +95,9 @@
   <section id="inicio" class="hero hero--dark">
     <div class="container hero-split">
       <div class="hero-copy">
+      <div class="hero-logo">
+      <img src="img/logo-BN.svg" alt="Futuro en Movimiento">
+      </div>
         <h1><span>ÉXITO GRACIAS AL</span><br/>COACHING VITAL</h1>
         <p class="lead">Acompaño a adolescentes, familias y equipos para convertir objetivos en acciones concretas.</p>
         <a class="btn btn--pill" href="#contacto">Contactar ahora</a>
@@ -278,38 +281,54 @@
     </div>
   </section>
 
-  <!-- ===== CONTACTO ===== -->
-  <section id="contacto" class="contact-band">
-    <div class="container contact-grid">
-      <div class="contact-info">
-        <h2>Trabajemos juntos en tus objetivos</h2>
-        <p><strong>Teléfono:</strong> <a href="https://wa.me/34629488027" target="_blank" rel="noopener">+34 629 488 027</a></p>
-        <p><strong>Email:</strong> <a href="mailto:Suarezgilsantiago@gmail.com">Suarezgilsantiago@gmail.com</a></p>
-        <p><strong>Ubicación:</strong> Barcelona · Sesiones online y presenciales</p>
+<!-- ===== CONTACTO ===== -->
+<section id="contacto" class="contact-band">
+  <div class="container contact-grid">
+    
+    <div class="contact-info">
+      <h2>Trabajemos juntos en tus objetivos</h2>
+      <p><strong>Teléfono:</strong> <a href="https://wa.me/34629488027" target="_blank" rel="noopener">+34 629 488 027</a></p>
+      <p><strong>Email:</strong> <a href="mailto:Suarezgilsantiago@gmail.com">Suarezgilsantiago@gmail.com</a></p>
+      <p><strong>Ubicación:</strong> Barcelona · Sesiones online y presenciales</p>
 
-        <div class="socials">
-          <!-- iconos -->
-        </div>
+      <div class="socials">
+        <!-- iconos -->
       </div>
-
-      <form class="form contact-form" action="#" method="post">
-        <label>
-          <span>Nombre*</span>
-          <input type="text" name="nombre" required>
-        </label>
-        <label>
-          <span>Email*</span>
-          <input type="email" name="email" required>
-        </label>
-        <label>
-          <span>Mensaje*</span>
-          <textarea name="mensaje" rows="6" required></textarea>
-        </label>
-        <p class="req">* Indica los campos obligatorios</p>
-        <button class="btn btn--pill" type="submit">Enviar</button>
-      </form>
     </div>
-  </section>
+
+    <!-- Formulario -->
+    <form class="form contact-form" action="#" method="post">
+      <label>
+        <span>Nombre*</span>
+        <input type="text" name="nombre" required>
+      </label>
+      <label>
+        <span>Email*</span>
+        <input type="email" name="email" required>
+      </label>
+      <label>
+        <span>Mensaje*</span>
+        <textarea name="mensaje" rows="6" required></textarea>
+      </label>
+
+      <p class="req">* Indica los campos obligatorios</p>
+
+      <button class="btn btn--pill" type="submit">Enviar</button>
+
+      <!-- Consentimiento RGPD -->
+      <div class="consent">
+        <input type="checkbox" id="privacidad" name="privacidad" required>
+        <label for="privacidad">
+          He leído y acepto la 
+          <a href="Politica-de-privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a>
+        </label>
+      </div>
+    </form>
+
+  </div>
+</section>
+
+
 
   <!-- ===== FOOTER ===== -->
   <footer class="site-footer">

@@ -1,9 +1,6 @@
 /* =============================
   styles.css — Futuro en Movimiento (tema de la plantilla)
 ============================= */
-/* =============================
-  styles.css — Futuro en Movimiento
-============================= */
 :root{
   --ink:#111827;
   --muted:#6b7280;
@@ -57,6 +54,30 @@ h3{font-weight:700; font-size:1.15rem}
 .brand-mark{width:12px; height:12px; display:inline-block; border-radius:999px; background:linear-gradient(135deg,var(--blue),var(--brown))}
 .brand-text small{display:block; color:var(--muted); font-size:12px}
 .logo{font-weight:700; color:#0f244c; text-decoration:none}
+
+
+/* Logo pequeño en el nav */
+.brand-logo {
+  height: 32px;      /* más discreto */
+  width: auto;       /* mantiene proporciones */
+  margin-right: 10px; /* separa del texto */
+  vertical-align: middle;
+}
+@media (max-width: 560px){
+  .brand-logo {
+    height: 18px; /* un pelín más pequeño en pantallas pequeñas */
+  }
+}
+.hero-logo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.hero-logo img {
+  height: 190px;   /* grande y visible */
+  width: auto;
+  display: inline-block;
+}
+
 
 .hamburger{
   display:inline-flex; flex-direction:column; gap:6px;
@@ -273,6 +294,78 @@ h3{font-weight:700; font-size:1.15rem}
 .closing{text-align:center}
 .closing-quote{font-size:1.1rem; color:#111827; margin-bottom:12px}
 .closing-cta .btn{font-weight:700}
+
+/* Consentimiento RGPD: todo en una línea */
+.consent{
+  display:flex;
+  justify-content:center;      /* centra el contenido dentro */
+  align-items:center;
+  gap:8px;
+  margin:10px 0 0;
+  font-size:0.85rem;
+  max-width:100%;              /* ocupa todo el ancho disponible */
+  background:transparent;      /* sin fondo */
+  padding:6px 0;
+}
+
+.contact-form .btn,
+.contact-form .consent{
+  width:100%;                  /* mismo ancho */
+  text-align:center;
+}
+
+.consent label{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  margin:0;
+  white-space:nowrap;          /* en desktop todo en una línea */
+}
+
+.consent a{
+  display:inline;
+  white-space:nowrap;
+  text-decoration:underline;
+  color:inherit;
+}
+
+/* ===== Fix consentimiento: una sola línea y mismo ancho que el botón ===== */
+.contact-form .consent{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  margin-top:10px;
+  width:100%;                 /* mismo ancho visual que el botón */
+  text-align:center;
+  font-size:0.9rem;
+}
+
+.contact-form .consent label{
+  display:inline-flex;        /* anula .form label { display:flex } */
+  flex-direction:row;         /* anula la columna */
+  align-items:center;
+  gap:6px;
+  white-space:nowrap;         /* no romper línea en desktop */
+  margin:0; padding:0;
+}
+
+.contact-form .consent a{
+  display:inline;             /* por si algún <a> global es block */
+  white-space:nowrap;
+  text-decoration:underline;
+}
+
+@media (max-width:560px){
+  .contact-form .consent{ justify-content:flex-start; text-align:left; }
+  .contact-form .consent label{ white-space:normal; } /* permite 2 líneas si no cabe */
+}
+
+/* Responsive: en móvil permitimos romper si no cabe */
+@media (max-width:560px){
+  .consent{ justify-content:flex-start; }
+  .consent label{ white-space:normal; }
+}
 
 /* ---------- Desplegables (cards + split) ---------- */
 .more-text{margin-top:12px; font-size:.95rem; color:#e5e7eb; animation:fadeIn .3s ease}
