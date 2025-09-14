@@ -135,7 +135,7 @@
   <section class="services-hero">
     <div class="container">
       <h1>Servicios</h1>
-      <p>Acompaño a adolescentes y adultos a ganar claridad, tomar decisiones con confianza y pasar a la acción con un plan realista.</p>
+      <p>Te acompaño a ganar claridad, tomar decisiones con confianza y transformar tus objetivos en pasos concretos hacia el futuro que deseas.</p>
       <p class="intro-cta">
         <a href="#opciones" class="btn btn--pill">Ver opciones</a>
       </p>
@@ -145,6 +145,7 @@
   <!-- Qué ofrezco -->
   <section class="about-section">
     <div class="container">
+      <br>
       <h2>¿Qué ofrezco?</h2>
       <div class="services-grid">
         <!-- 1:1 -->
@@ -160,9 +161,9 @@
         <article class="services-card">
           <h3>Proceso de coaching</h3>
           <ul>
-            <li>4–8 sesiones (semanales o quincenales).</li>
-            <li>Ruta clara, seguimiento y plan de acción.</li>
-            <li>Materiales y tareas entre sesiones.</li>
+            <li>6–8 sesiones.</li>
+            <li>Con una duración máxima de 6 meses, para avanzar sin perder impulso.</li>
+            <li>Ejercicios y recursos de apoyo.</li>
           </ul>
         </article>
         <!-- Talleres -->
@@ -194,8 +195,8 @@
       <div class="pricing-grid">
         <!-- Tarjeta 1 -->
         <article class="pricing-card">
-          <h4>Sesión individual</h4>
-          <div class="price">€ — <!-- Edita aquí el precio --></div>
+          <h4>Sesión individual 1:1</h4>
+          <div class="price">€ 59 <!-- Edita aquí el precio --></div>
           <ul>
             <li>60–75 min.</li>
             <li>Online o presencial.</li>
@@ -206,10 +207,10 @@
 
         <!-- Tarjeta 2 -->
         <article class="pricing-card">
-          <h4>Proceso 5 sesiones</h4>
-          <div class="price">€ — <!-- Edita aquí --></div>
+          <h4>Proceso 8 sesiones</h4>
+          <div class="price">€ 420 <!-- Edita aquí --></div>
           <ul>
-            <li>5 sesiones / 6–8 semanas.</li>
+            <li>8 sesiones individualizadas.</li>
             <li>Seguimiento entre sesiones.</li>
             <li>Materiales y ejercicios.</li>
           </ul>
@@ -237,10 +238,10 @@
     <div class="container">
       <h2>Cómo trabajamos</h2>
       <div class="steps">
-        <div class="step"><strong>Primera toma de contacto</strong> · Entendemos tu situación, objetivo y disponibilidad.</div>
-        <div class="step"><strong>Definición del plan</strong> · Acordamos sesiones, ritmo y métricas de progreso.</div>
-        <div class="step"><strong>Sesiones y acción</strong> · Trabajo práctico, tareas sencillas y feedback.</div>
-        <div class="step"><strong>Cierre y siguientes pasos</strong> · Revisión de logros y plan de mantenimiento.</div>
+        <div class="step"><strong>Primera toma de contacto</strong> · Un encuentro inicial para conocernos, entender tu situación y lo que quieres lograr.</div>
+        <div class="step"><strong>Definición del plan</strong> · Acordamos el número de sesiones, el ritmo y las metas que vas a trabajar.</div>
+        <div class="step"><strong>Sesiones y acción</strong> · Espacios prácticos donde reflexionar, trabajar herramientas y dar pasos concretos. Entre sesiones tendrás ejercicios sencillos que te ayudarán a avanzar.</div>
+        <div class="step"><strong>Cierre y siguientes pasos</strong> · Revisamos los logros conseguidos y trazas un plan de mantenimiento para que sigas en movimiento.</div>
       </div>
     </div>
   </section>
@@ -298,6 +299,53 @@
     const y = document.getElementById('y');
     if (y) y.textContent = new Date().getFullYear();
   </script>
+  <!-- Botón flotante -->
+<button class="wa-fab" id="waFab" aria-label="Abrir chat de WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white">
+    <path d="M12.04 2a9.9 9.9 0 0 0-8.5 15l-1 3.7 3.8-1a9.9 9.9 0 1 0 5.7-17.7Zm5.8 14.4c-.2.6-1 1-1.6 1.1-.4 0-.9.1-3-.6-2.5-.9-4-3.1-4.2-3.3-.2-.3-1-1.3-1-2.5s.6-1.8.8-2c.2-.3.5-.4.7-.4h.5c.2 0 .4 0 .6.5.2.6.7 2 .7 2.1 0 .2.1.3 0 .5-.1.2-.2.3-.4.5l-.3.4c-.1.1-.3.2-.1.6.2.4.7 1.2 1.5 2 .8.8 1.6 1.1 2 .1l.3-.4c.2-.3.3-.3.5-.4h.5c.1 0 .3 0 .5.2.1.2.7.5.8.9.1.4.1.7 0 1Z"/>
+  </svg>
+</button>
+
+<!-- Caja de chat -->
+<div class="wa-box" id="waBox" aria-hidden="true">
+  <div class="wa-header">
+    <span>WhatsApp — Futuro en Movimiento</span>
+    <button class="wa-close" id="waClose" aria-label="Cerrar">×</button>
+  </div>
+  <div class="wa-body">
+    <p>Hola 👋 ¿En qué puedo ayudarte?</p>
+    <textarea id="waMsg" rows="3" placeholder="Escribe tu mensaje..."></textarea>
+  </div>
+  <div class="wa-actions">
+    <button id="waSend" class="btn btn--pill">Enviar por WhatsApp</button>
+  </div>
+</div>
+<script>
+  // Número en formato internacional (España: 34)
+  const WA_NUMBER = "34629488027";  
+
+  const $fab   = document.getElementById('waFab');
+  const $box   = document.getElementById('waBox');
+  const $close = document.getElementById('waClose');
+  const $send  = document.getElementById('waSend');
+  const $msg   = document.getElementById('waMsg');
+
+  // Abrir/cerrar chatbox
+  $fab.addEventListener('click', () => {
+    $box.classList.toggle('is-open');
+    if ($box.classList.contains('is-open') && !$msg.value) {
+      $msg.value = "Hola, me interesa una sesión de coaching 🙂";
+    }
+  });
+  $close.addEventListener('click', () => $box.classList.remove('is-open'));
+
+  // Enviar mensaje
+  $send.addEventListener('click', () => {
+    const text = encodeURIComponent($msg.value || "Hola 👋");
+    const url = `https://wa.me/${WA_NUMBER}?text=${text}`;
+    window.open(url, '_blank', 'noopener');
+  });
+</script>
 </body>
 </html>
 

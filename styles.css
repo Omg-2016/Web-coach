@@ -68,16 +68,6 @@ h3{font-weight:700; font-size:1.15rem}
     height: 18px; /* un pelín más pequeño en pantallas pequeñas */
   }
 }
-.hero-logo {
-  text-align: center;
-  margin-bottom: 20px;
-}
-.hero-logo img {
-  height: 190px;   /* grande y visible */
-  width: auto;
-  display: inline-block;
-}
-
 
 .hamburger{
   display:inline-flex; flex-direction:column; gap:6px;
@@ -117,25 +107,99 @@ h3{font-weight:700; font-size:1.15rem}
 }
 
 /* ---------- HERO ---------- */
-.hero{padding:0}
-.hero--dark{background:#000}
-.hero-split{
-  display:grid; grid-template-columns:1fr 1fr; align-items:stretch;
-  border-radius:24px; overflow:hidden; margin-top:16px;
+.hero {
+  padding: 0;
 }
-.hero-copy{
-  background:linear-gradient(180deg,var(--g1),var(--g2));
-  padding:70px 7%; color:#fff;
+.hero--dark {
+  background: #000;
 }
-.hero-copy h1{color:#fff}
-.hero-copy .lead{color:#cfd6df; max-width:40ch; margin:10px 0 18px}
-.hero-photo{position:relative}
-.hero-photo img{display:block; width:100%; height:100%; object-fit:cover}
-.hero-photo::after{
-  content:""; position:absolute; inset:0;
-  background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.25));
-  mix-blend-mode:multiply;
+.hero-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  border-radius: 24px;
+  overflow: hidden;
+  margin-top: 16px;
 }
+.hero-copy {
+  background: linear-gradient(180deg, var(--g1), var(--g2));
+  padding: 70px 7%;
+  color: #fff;
+}
+.hero-copy h1 {
+  color: #fff;
+}
+.hero-copy .lead {
+  color: #cfd6df;
+  max-width: 40ch;
+  margin: 10px 0 18px;
+}
+.hero-photo {
+  position: relative;
+}
+.hero-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.25));
+  mix-blend-mode: multiply;
+}
+
+/* ---------- HERO TEXT (bloque izquierdo con logo) ---------- */
+.hero-text{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;     /* el fondo (logo) centrado */
+  min-height: 440px;
+  padding: 0 32px 24px;        /* padding abajo para respiración */
+  background: linear-gradient(180deg, var(--g1,#0e1a2b), var(--g2,#101c2e));
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* Fondo con el logo SIN recortar */
+.hero-text::before{
+  content:"";
+  position:absolute;
+  inset: 0 0 120px 0;          /* reserva 120px abajo para el botón */
+  border-radius: 20px 20px 0 0;
+  background: url("img/logo-fondo-negro.svg") no-repeat center;
+  background-size: contain;    /* no recorta */
+  opacity: 1;
+  pointer-events:none;
+}
+
+/* Botón: SIEMPRE abajo, centrado y por encima */
+.hero-text .btn{
+  position: absolute;
+  left: 50%;
+  bottom: 24px;                /* distancia al borde inferior */
+  transform: translateX(-50%);
+  z-index: 1;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px){
+  .hero-text{
+    min-height: 380px;
+    padding: 0 20px 20px;
+  }
+  .hero-text::before{
+    inset: 0 0 96px 0;         /* reserva un poco menos en móvil */
+  }
+  .hero-text .btn{
+    bottom: 20px;
+  }
+}
+
 
 /* ---------- Split blocks ---------- */
 .split-block{padding:72px 0; background:#fff}
@@ -197,6 +261,24 @@ h3{font-weight:700; font-size:1.15rem}
 .btn:hover{background:var(--blue-700)}
 .btn--sm{padding:9px 14px; font-size:.95rem}
 .btn--pill{border-radius:999px}
+
+/* ---------- LOGO FULLWIDTH ---------- */
+.logo-full {
+  width: 100%;
+  background: #0e1a2b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0; /* eliminamos padding vertical para que el logo use todo el alto */
+}
+
+.logo-full-inner {
+  width: 100%;
+  height: 40vw;   /* altura proporcional al ancho de la pantalla */
+  max-height: 400px;  /* opcional: límite máximo en pantallas muy grandes */
+  background: url("img/logo-BN.svg") no-repeat center;
+  background-size: contain; /* ocupa lo máximo sin deformarse */
+}
 
 /* ---------- Footer ---------- */
 .site-footer{
@@ -354,6 +436,129 @@ h3{font-weight:700; font-size:1.15rem}
   display:inline;             /* por si algún <a> global es block */
   white-space:nowrap;
   text-decoration:underline;
+}
+
+/* Bloque de redes sociales */
+.socials {
+  margin-top: 16px;
+}
+
+.social-list {
+  display: flex;
+  gap: 16px;               /* separación entre iconos */
+  list-style: none;        /* quita los puntos */
+  padding: 0;
+  margin: 0;
+}
+
+.social-list li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #1a1f2b;     /* círculo de fondo oscuro */
+  color: #fff;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.social-list li a:hover {
+  background: #5e86a6;     /* color de hover */
+  transform: translateY(-3px);
+}
+
+.social-list svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;      /* hereda color del <a> */
+}
+
+/* Botón flotante WhatsApp */
+.wa-fab {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background: #25D366;
+  box-shadow: 0 8px 20px rgba(0,0,0,.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  transition: transform 0.2s;
+}
+.wa-fab:hover {
+  transform: scale(1.08);
+}
+
+/* Caja de chat */
+.wa-box {
+  position: fixed;
+  right: 20px;
+  bottom: 90px;
+  width: 320px;
+  background: #0e1a2b;
+  color: #e8eef6;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,.35);
+  overflow: hidden;
+  display: none;
+  z-index: 1000;
+}
+.wa-box.is-open { display: block; }
+
+.wa-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  background: #13243b;
+  font-weight: 600;
+}
+.wa-close {
+  background: transparent;
+  border: none;
+  color: #cfd6df;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.wa-body { padding: 12px 14px; }
+.wa-body p { margin: 0 0 8px; color: #cfd6df; }
+.wa-body textarea {
+  width: 100%;
+  background: #0b182a;
+  color: #e8eef6;
+  border: 1px solid #1f3553;
+  border-radius: 10px;
+  padding: 10px;
+  resize: vertical;
+}
+
+.wa-actions {
+  padding: 12px 14px;
+  display: flex;
+  justify-content: flex-end;
+}
+.wa-actions .btn {
+  background: #5e86a6;
+  color: #fff;
+  border: 0;
+  padding: 10px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.wa-actions .btn:hover { filter: brightness(1.1); }
+
+/* Responsive */
+@media (max-width:480px) {
+  .wa-box { right: 10px; left: 10px; width: auto; }
+  .wa-fab { right: 14px; bottom: 14px; }
 }
 
 @media (max-width:560px){

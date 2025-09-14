@@ -45,3 +45,4 @@ document.addEventListener('DOMContentLoaded', () => {
   if (mq.addEventListener) mq.addEventListener('change', handleMQ);
   else mq.addListener(handleMQ);
 });
+
