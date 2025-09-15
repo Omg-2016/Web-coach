@@ -107,6 +107,192 @@ h3{font-weight:700; font-size:1.15rem}
 }
 
 /* ---------- HERO ---------- */
+:root{
+  /* Proporción y altura de los marcos (vídeo/foto) */
+  --media-ratio: 4 / 5;                  /* retrato; cambia a 16/9 si prefieres panorámico */
+  --media-max-h: clamp(340px, 55vh, 520px);
+}
+
+.hero {
+  padding: 0;
+}
+.hero--dark {
+  background: #000;
+}
+.hero-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: start;          /* controla la alineación por columna */
+  border-radius: 24px;
+  margin-top: 16px;
+}
+
+/* ---------- Columna izquierda (vídeo + texto) ---------- */
+.hero-copy {
+  background: linear-gradient(180deg, var(--g1), var(--g2));
+  color: #fff;
+  border-radius: 24px;
+  padding: 32px 7% 36px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Marco del vídeo */
+.media-box {
+  aspect-ratio: var(--media-ratio);
+  max-height: var(--media-max-h);
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(0,0,0,.35);
+  background: #000;
+  margin: 0 auto;                      /* centra el vídeo dentro de la columna */
+}
+
+/* NO recortar el vídeo */
+.brand-video{
+  width:100%;
+  height:100%;
+  object-fit: contain;      /* ⬅️ antes: cover */
+  object-position: center;  /* prueba 'top center' si corta por arriba */
+  background:#000;          /* bandas de relleno discretas */
+  display:block;
+}
+
+
+/* Texto y botón debajo del vídeo */
+.hero-content {
+  margin-top: 16px;
+  max-width: 60ch;
+  text-align: center;                  /* ⬅️ centrado */
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-title {
+  font-size: 1.9rem;
+  line-height: 1.25;
+  margin: 0 0 10px;
+  color: #fff;
+}
+.hero-subtitle {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #cfd6df;
+  margin: 0 0 14px;
+}
+.hero-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;             /* ⬅️ botones centrados */
+}
+.hero-copy .btn {
+  margin: 0;
+}
+/* === Arreglo: NO recortar vídeo en escritorio y misma altura que la foto === */
+:root{
+  /* altura de las “tarjetas” (ajústala si quieres) */
+  --media-max-h: clamp(360px, 58vh, 560px);
+}
+
+/* El contenedor del vídeo deja de tener aspect-ratio fijo,
+   usa altura fija (igual que la foto) y centra el contenido */
+.media-box{
+  aspect-ratio: auto !important;      /* quita la proporción forzada */
+  height: var(--media-max-h) !important;
+  max-height: var(--media-max-h) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;                   /* nada queda cortado */
+}
+
+/* El vídeo ocupa el espacio sin recortar, centrado,
+   con bandas si hace falta (letterboxing) */
+.brand-video{
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain !important;      /* ⬅️ clave para NO recortar */
+  object-position: center center;
+  background: #000;                    /* bandas discretas si sobran márgenes */
+  display: block;
+}
+
+/* La foto mantiene la misma ALTURA que el vídeo y rellena el marco (puede recortar un pelín) */
+.hero-photo{
+  aspect-ratio: auto !important;
+  height: var(--media-max-h) !important;
+  max-height: var(--media-max-h) !important;
+  display: block;
+}
+.hero-photo img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;                    /* queda pro y sin bandas */
+}
+
+/* Opcional: en móvil vuelve a usar proporciones automáticas para adaptarse mejor */
+@media (max-width: 900px){
+  .media-box,
+  .hero-photo{
+    height: auto !important;
+    max-height: none !important;
+  }
+  .brand-video{
+    height: auto !important;
+  }
+}
+
+/* ---------- Columna derecha (foto) ---------- */
+.hero-photo {
+  aspect-ratio: var(--media-ratio);
+  max-height: var(--media-max-h);
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(0,0,0,.35);
+  position: relative;
+  margin: 0 auto;
+  align-self: center;                  /* ⬅️ centra verticalmente */
+}
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hero-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.25));
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  border-radius: 18px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .hero-split {
+    grid-template-columns: 1fr;
+  }
+  .hero-content {
+    max-width: none;
+    text-align: center;
+  }
+  .hero-actions {
+    justify-content: center;
+  }
+  .hero-photo {
+    margin-top: 24px;  /* separa la foto cuando se apila debajo */
+  }
+}
+
+/* ---------- HERO ---------- 
 .hero {
   padding: 0;
 }
@@ -151,40 +337,83 @@ h3{font-weight:700; font-size:1.15rem}
   mix-blend-mode: multiply;
 }
 
-/* ---------- HERO TEXT (bloque izquierdo con logo) ---------- */
+/* ---------- HERO TEXT (bloque izquierdo con logo) ---------- 
 .hero-text{
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;     /* el fondo (logo) centrado */
+  justify-content: center;     /* el fondo (logo) centrado 
   min-height: 440px;
-  padding: 0 32px 24px;        /* padding abajo para respiración */
+  padding: 0 32px 24px;        /* padding abajo para respiración 
   background: linear-gradient(180deg, var(--g1,#0e1a2b), var(--g2,#101c2e));
   border-radius: 20px;
   overflow: hidden;
 }
 
-/* Fondo con el logo SIN recortar */
+/* Fondo con el logo SIN recortar 
 .hero-text::before{
   content:"";
   position:absolute;
-  inset: 0 0 120px 0;          /* reserva 120px abajo para el botón */
+  inset: 0 0 120px 0;          /* reserva 120px abajo para el botón 
   border-radius: 20px 20px 0 0;
-  background: url("img/logo-fondo-negro.svg") no-repeat center;
-  background-size: contain;    /* no recorta */
+  background: url("img/VIDEO-2025-09-15-08-41-05.mp4") no-repeat center;
+  background-size: contain;    /* no recorta 
   opacity: 1;
   pointer-events:none;
 }
 
-/* Botón: SIEMPRE abajo, centrado y por encima */
+/* Botón: SIEMPRE abajo, centrado y por encima 
 .hero-text .btn{
   position: absolute;
   left: 50%;
-  bottom: 24px;                /* distancia al borde inferior */
+  bottom: 24px;                /* distancia al borde inferior 
   transform: translateX(-50%);
   z-index: 1;
   margin: 0;
+}*/
+/* ---------- HERO IZQUIERDA (video + texto) ---------- */
+.brand-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* centrado horizontal */
+  text-align: center;    /* centra el texto también */
+  gap: 24px;
 }
+
+.brand-video {
+  width: 100%;               /* ocupa toda la columna */
+  height: auto;              /* altura automática según el vídeo */
+  border-radius: 16px;       /* esquinas redondeadas */
+  object-fit: contain;       /* no recorta */
+  background: #000;          /* relleno si sobran bandas */
+  box-shadow: 0 6px 24px rgba(0,0,0,.4);
+}
+
+
+.brand-text {
+  max-width: 600px;
+}
+
+.hero-title {
+  font-size: 2rem;
+  line-height: 1.3;
+  margin: 0 0 12px;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #cfd6df;
+  margin: 0;
+}
+
+.hero-actions {
+  margin-top: 28px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;  /* botones centrados */
+}
+
 
 /* Responsive */
 @media (max-width: 768px){

@@ -113,22 +113,67 @@
 <!-- HERO -->
 <section id="inicio" class="hero hero--dark">
   <div class="container hero-split">
+
+    <!-- Bloque izquierdo: vídeo + texto/acciones -->
+    <div class="hero-copy">
+      
+      <!-- Marco del vídeo -->
+      <div class="media-box">
+        <video class="brand-video"
+               playsinline
+               autoplay
+               muted
+               loop
+               preload="metadata"
+               poster="img/video-poster.jpg"
+               aria-label="Animación de marca Futuro en Movimiento">
+          <source src="media/intro.webm" type="video/webm">
+          <source src="img/VIDEO-2025-09-15-08-41-05.mp4" type="video/mp4">
+          Tu navegador no soporta vídeo HTML5.
+        </video>
+      </div>
+
+      <!-- Texto y botón -->
+      <div class="hero-content">
+        <h1 class="hero-title">Todos tenemos lo que necesitamos para llegar a nuestro objetivo</h1>
+        <p class="hero-subtitle">Santiago Suárez · Coach</p>
+        <div class="hero-actions">
+          <a class="btn btn--pill" href="#contacto">Contactar ahora</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bloque derecho con la foto -->
+    <figure class="hero-photo">
+      <img src="img/imagen-principal.png"
+           alt="Retrato profesional"
+           loading="eager"
+           decoding="async" />
+    </figure>
+
+  </div>
+</section>
+
+<!-- HERO 
+<section id="inicio" class="hero hero--dark">
+  <div class="container hero-split">
     
-    <!-- Bloque izquierdo con logo como fondo -->
+    <!-- Bloque izquierdo con logo como fondo 
     <div class="hero-copy">
       <div class="hero-text">
-        <!-- Si quieres mantener el botón, lo dejas aquí -->
+        <!-- Si quieres mantener el botón, lo dejas aquí 
         <a class="btn btn--pill" href="#contacto">Contactar ahora</a>
       </div>
     </div>
 
-    <!-- Bloque derecho con la foto -->
+    <!-- Bloque derecho con la foto 
     <figure class="hero-photo">
       <img src="img/imagen-principal.png" alt="Retrato profesional"/>
     </figure>
 
   </div>
-</section>
+</section> -->
 
 
   <!-- ===== PRESENTACIÓN / HOME ===== -->
@@ -374,12 +419,6 @@
   </div>
 </section>
 
-
-<!-- LOGO FULLWIDTH -->
-
-<section class="logo-full">
-  <div class="logo-full-inner"></div>
-</section>
 
 
   <!-- ===== FOOTER ===== -->
