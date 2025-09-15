@@ -94,42 +94,52 @@
       .services-grid, .pricing-grid{ grid-template-columns: 1fr; }
     }
   </style>
+  <script src="custom.js" defer></script>
 </head>
 <body>
 
-  <!-- Header unificado -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand logo" href="index.html" aria-label="Volver al inicio">
-        <span class="brand-mark" aria-hidden="true">⬤</span>
-        <span class="brand-text">
-          <strong>Futuro en Movimiento</strong>
-          <small>Santiago Suárez · Coach</small>
-        </span>
-      </a>
+  <!-- Header / Navbar --> 
+<header class="site-header">
+  <div class="container header-inner">
 
-      <!-- Botón hamburguesa -->
-      <button class="hamburger nav-toggle" aria-controls="navMobile" aria-expanded="false" aria-label="Abrir menú">
-        <span></span><span></span><span></span>
-      </button>
+    <!-- Marca con vídeo -->
+    <a class="brand logo" href="index.html" aria-label="Volver al inicio">
+      <div class="brand-logo">
+        <video class="logo-video" playsinline autoplay muted loop preload="metadata" poster="img/video-poster.jpg">
+          <source src="img/VIDEO-logo.webm" type="video/webm">
+          <source src="img/VIDEO-logo.mp4" type="video/mp4">
+          Tu navegador no soporta vídeo HTML5.
+        </video>
+      </div>
+      <span class="brand-text">
+        <strong>Futuro en Movimiento</strong>
+        <small>Santiago Suárez · Coach</small>
+      </span>
+    </a>
 
-      <!-- Menú escritorio -->
-      <nav class="nav nav-desktop" aria-label="Principal">
-        <a href="index.html">Inicio</a>
-        <a href="sobre-mi.html">Sobre mí</a>
-        <a href="servicios.html" aria-current="page">Servicios</a>
-        <a href="index.html#contacto">Contacto</a>
-      </nav>
+    <!-- Botón hamburguesa -->
+    <button class="hamburger nav-toggle" aria-controls="navMobile" aria-expanded="false" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
 
-      <!-- Menú móvil (dropdown a la derecha; oculto por defecto) -->
-      <nav id="navMobile" class="nav-mobile" aria-label="Principal móvil" hidden>
-        <a href="index.html">Inicio</a>
-        <a href="sobre-mi.html">Sobre mí</a>
-        <a href="servicios.html" aria-current="page">Servicios</a>
-        <a href="index.html#contacto">Contacto</a>
-      </nav>
-    </div>
-  </header>
+    <!-- Menú escritorio -->
+    <nav class="nav nav-desktop" aria-label="Principal">
+      <a href="index.html">Inicio</a>
+      <a href="sobre-mi.html">Sobre mí</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="index.html#contacto">Contacto</a>
+    </nav>
+
+    <!-- Menú móvil -->
+    <nav id="navMobile" class="nav-mobile" aria-label="Principal móvil" hidden>
+      <a href="index.html">Inicio</a>
+      <a href="sobre-mi.html">Sobre mí</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="index.html#contacto">Contacto</a>
+    </nav>
+
+  </div>
+</header>
 
   <!-- Hero -->
   <section class="services-hero">

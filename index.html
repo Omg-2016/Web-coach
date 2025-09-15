@@ -7,41 +7,68 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Futuro en Movimiento | Coaching — Santiago Suárez</title>
+  <!-- iOS notch + responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+  <title>Futuro en Movimiento · Coaching — Santiago Suárez</title>
   <meta name="description" content="Coaching emocional y motivacional para adolescentes, familias y equipos: sesiones 1:1, procesos, talleres y trabajo con equipos." />
+  <meta name="author" content="Santiago Suárez" />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://futuroenmovimiento.es/" />
 
-  <!-- Fuentes -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+  <!-- Tema del navegador (dinámico por modo claro/oscuro) -->
+  <meta name="theme-color" content="#0f244c" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#000000"  media="(prefers-color-scheme: dark)" />
+  <meta name="color-scheme" content="light dark" />
 
-  <!-- Hoja de estilos -->
-  <link rel="stylesheet" href="styles.css?v=7">
+  <!-- Fuentes (rápido y con swap) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Favicon -->
-  <link rel="icon" href="img/logo-BN.svg" sizes="any">
-  <link rel="apple-touch-icon" href="img/logo-BN.svg">
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="styles.css?v=7" />
 
-  <!-- SEO básico -->
-  <meta name="author" content="Santiago Suárez">
-  <link rel="canonical" href="https://futuroenmovimiento.es/">
+<!-- Favicons (logo circular a color) -->
+<link rel="icon" href="img/logo_transparente.png" type="image/png" sizes="32x32" />
+<link rel="icon" href="img/logo_transparente.png" type="image/png" sizes="192x192" />
+<link rel="apple-touch-icon" href="img/logo_transparente.png" sizes="180x180" />
+<link rel="shortcut icon" href="img/logo_transparente.png" type="image/png">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Futuro en Movimiento | Coaching — Santiago Suárez">
-  <meta property="og:description" content="Coaching emocional y motivacional para adolescentes, familias y equipos: sesiones 1:1, procesos, talleres y equipos.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://futuroenmovimiento.es/">
-  <meta property="og:image" content="https://tudominio.es/og-image.jpg">
+  <!-- Social / Open Graph -->
+  <meta property="og:site_name" content="Futuro en Movimiento" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:title" content="Futuro en Movimiento · Coaching — Santiago Suárez" />
+  <meta property="og:description" content="Coaching emocional y motivacional para adolescentes, familias y equipos: sesiones 1:1, procesos, talleres y trabajo con equipos." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://futuroenmovimiento.es/" />
+  <meta property="og:image" content="https://futuroenmovimiento.es/img/logo-color.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Futuro en Movimiento | Coaching — Santiago Suárez">
-  <meta name="twitter:description" content="Sesiones 1:1, procesos, talleres y trabajo con equipos.">
-  <meta name="twitter:image" content="https://tudominio.es/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Futuro en Movimiento · Coaching — Santiago Suárez" />
+  <meta name="twitter:description" content="Coaching emocional y motivacional para adolescentes, familias y equipos: sesiones 1:1, procesos, talleres y trabajo con equipos." />
+  <meta name="twitter:image" content="https://futuroenmovimiento.es/img/logo-color.png" />
 
-  <!-- Menú + acordeones -->
+  <!-- Rendimiento: precargar lo crítico del “above-the-fold” -->
+  <link rel="preload" as="image" href="img/imagen-principal.png" fetchpriority="high" />
+  <!-- Precargar el vídeo del logo (header) -->
+  <link rel="preload" as="video" href="img/VIDEO-logo.mp4" type="video/mp4" />
+
+  <!-- Navegación anticipada (mejora sensibilidad al cambiar de página) -->
+  <link rel="prefetch" href="sobre-mi.html" />
+  <link rel="prefetch" href="servicios.html" />
+
+  <!-- JS propios -->
   <script src="menu.js?v=7" defer></script>
+  <script src="custom.js" defer></script>
+
+  <!-- (Opcional futuro) PWA -->
+  <!-- <link rel="manifest" href="site.webmanifest"> -->
 </head>
+
 
 <body>
 
@@ -56,41 +83,65 @@
       <button class="btn btn--sm" id="cookies-accept">Aceptar todas</button>
     </div>
   </div>
+<!-- Preloader -->
+<div id="preloader" class="preloader" aria-hidden="true">
+  <div class="preloader-inner">
+    <!-- Logo en color -->
+    <img class="preloader-logo" src="img/logo-color.svg" alt="" />
 
-  <!-- Header / Navbar -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand logo" href="index.html" aria-label="Volver al inicio">
-        <span class="brand-mark" aria-hidden="true">⬤</span>
-        <span class="brand-text">
-          <strong>Futuro en Movimiento</strong>
-          <small>Santiago Suárez · Coach</small>
-        </span>
-      </a>
+    <!-- Anillo animado -->
+    <div class="preloader-ring" aria-hidden="true"></div>
 
+    <!-- Fallback sin JS -->
+    <noscript>
+      <style>.preloader{display:none!important}</style>
+    </noscript>
+  </div>
+</div>
 
-      <!-- Botón hamburguesa -->
-      <button class="hamburger nav-toggle" aria-controls="navMobile" aria-expanded="false" aria-label="Abrir menú">
-        <span></span><span></span><span></span>
-      </button>
+ <!-- Header / Navbar --> 
+<header class="site-header">
+  <div class="container header-inner">
 
-      <!-- Menú escritorio -->
-      <nav class="nav nav-desktop" aria-label="Principal">
-        <a href="index.html" aria-current="page">Inicio</a>
-        <a href="sobre-mi.html">Sobre mí</a>
-        <a href="servicios.html">Servicios</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
+    <!-- Marca con vídeo -->
+    <a class="brand logo" href="index.html" aria-label="Volver al inicio">
+      <div class="brand-logo">
+        <video class="logo-video" playsinline autoplay muted loop preload="metadata" poster="img/video-poster.jpg">
+          <source src="img/VIDEO-logo.webm" type="video/webm">
+          <source src="img/VIDEO-logo.mp4" type="video/mp4">
+          Tu navegador no soporta vídeo HTML5.
+        </video>
+      </div>
+      <span class="brand-text">
+        <strong>Futuro en Movimiento</strong>
+        <small>Santiago Suárez · Coach</small>
+      </span>
+    </a>
 
-      <!-- Menú móvil (oculto por defecto con [hidden]) -->
-      <nav id="navMobile" class="nav-mobile" aria-label="Principal móvil" hidden>
-        <a href="index.html" aria-current="page">Inicio</a>
-        <a href="sobre-mi.html">Sobre mí</a>
-        <a href="servicios.html">Servicios</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
-    </div>
-  </header>
+    <!-- Botón hamburguesa -->
+    <button class="hamburger nav-toggle" aria-controls="navMobile" aria-expanded="false" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- Menú escritorio -->
+    <nav class="nav nav-desktop" aria-label="Principal">
+      <a href="index.html" aria-current="page">Inicio</a>
+      <a href="sobre-mi.html">Sobre mí</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <!-- Menú móvil (oculto por defecto con [hidden]) -->
+    <nav id="navMobile" class="nav-mobile" aria-label="Principal móvil" hidden>
+      <a href="index.html" aria-current="page">Inicio</a>
+      <a href="sobre-mi.html">Sobre mí</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+  </div>
+</header>
+
 
   <!-- HERO 
   <section id="inicio" class="hero hero--dark">
@@ -110,41 +161,39 @@
     </div>
   </section>-->
 
+
 <!-- HERO -->
-<section id="inicio" class="hero hero--dark">
+<section id="inicio" class="hero hero--dark" aria-labelledby="hero-title">
   <div class="container hero-split">
 
-    <!-- Bloque izquierdo: vídeo + texto/acciones -->
+    <!-- Columna izquierda -->
     <div class="hero-copy">
-      
-      <!-- Marco del vídeo -->
-      <div class="media-box">
-        <video class="brand-video"
-               playsinline
-               autoplay
-               muted
-               loop
-               preload="metadata"
-               poster="img/video-poster.jpg"
-               aria-label="Animación de marca Futuro en Movimiento">
-          <source src="media/intro.webm" type="video/webm">
-          <source src="img/VIDEO-2025-09-15-08-41-05.mp4" type="video/mp4">
-          Tu navegador no soporta vídeo HTML5.
-        </video>
+
+      <!-- Opción A: Frases rotatorias -->
+      <div class="rotator" aria-hidden="true">
+        <span class="rotator-item in">MÁS CLARIDAD</span>
+        <span class="rotator-item">MÁS CONFIANZA</span>
+        <span class="rotator-item">MÁS ACCIÓN</span>
+        <span class="rotator-item">MÁS MOTIVACIÓN</span>
+
       </div>
 
-      <!-- Texto y botón -->
+      <!-- Opción B: Claim con subrayado -->
       <div class="hero-content">
-        <h1 class="hero-title">Todos tenemos lo que necesitamos para llegar a nuestro objetivo</h1>
+        <h1 id="hero-title" class="hero-title u-anim">
+        Todos tenemos lo que necesitamos para alcanzar nuestro objetivo
+        </h1>
+
         <p class="hero-subtitle">Santiago Suárez · Coach</p>
-        <div class="hero-actions">
+        <div class="hero-actions" role="group" aria-label="Acciones principales">
           <a class="btn btn--pill" href="#contacto">Contactar ahora</a>
+        
         </div>
       </div>
 
     </div>
 
-    <!-- Bloque derecho con la foto -->
+    <!-- Columna derecha -->
     <figure class="hero-photo">
       <img src="img/imagen-principal.png"
            alt="Retrato profesional"
@@ -154,6 +203,7 @@
 
   </div>
 </section>
+
 
 <!-- HERO 
 <section id="inicio" class="hero hero--dark">
