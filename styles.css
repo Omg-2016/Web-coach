@@ -151,11 +151,30 @@ h3{font-weight:700; font-size:1.15rem}
   display:flex; flex-direction:column; justify-content:center;
 }
 
-/* Rotador de frases/palabras */
-.rotator{
-  position:relative; height:2.4em; display:grid; place-items:center;
-  overflow:hidden; margin:0 0 20px;
+/* Rotador en escritorio */
+.rotator {
+  position: relative;
+  min-height: 2.6em; /* ajusta a la altura de la frase más alta */
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  margin: 0 0 20px;
 }
+
+/* Rotador en móvil */
+@media (max-width: 600px) {
+  .rotator {
+    min-height: 3.2em; /* un poco más alto para evitar cortes */
+  }
+
+  .rotator-item {
+    font-size: 1.6rem; /* reduce tamaño en móviles para evitar que salte de línea */
+    text-align: center;
+    white-space: nowrap; /* opcional: fuerza que no rompa la frase */
+  }
+}
+
+
 .rotator-item{
   position:absolute; opacity:0; transform:translateY(8px);
   transition:opacity .5s ease, transform .5s ease;
