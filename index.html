@@ -404,12 +404,14 @@
 <section id="contacto" class="contact-band">
   <div class="container contact-grid">
     
+    <!-- Columna izquierda: info + redes + logo -->
     <div class="contact-info">
       <h2>Trabajemos juntos en tus objetivos</h2>
       <p><strong>Teléfono:</strong> <a href="https://wa.me/34629488027" target="_blank" rel="noopener">+34 629 488 027</a></p>
       <p><strong>Email:</strong> <a href="mailto:Suarezgilsantiago@gmail.com">Suarezgilsantiago@gmail.com</a></p>
       <p><strong>Ubicación:</strong> Barcelona · Sesiones online y presenciales</p>
 
+      <!-- Redes sociales -->
       <div class="socials">
         <ul class="social-list">
           <li>
@@ -433,16 +435,24 @@
               </svg>
             </a>
           </li>
-          
         </ul>
+      </div>
+
+      <!-- Logo debajo de redes -->
+      <div class="contact-logo">
+        <img src="img/logo-fondo-negro-removebg-preview.png" alt="Futuro en Movimiento" />
       </div>
     </div>
 
-    <!-- Formulario -->
+    <!-- Columna derecha: formulario -->
     <form class="form contact-form" action="#" method="post">
       <label>
         <span>Nombre*</span>
         <input type="text" name="nombre" required>
+      </label>
+      <label>
+        <span>Teléfono*</span>
+        <input type="tel" name="telefono" required>
       </label>
       <label>
         <span>Email*</span>
@@ -461,7 +471,7 @@
       <div class="consent">
         <input type="checkbox" id="privacidad" name="privacidad" required>
         <label for="privacidad">
-          He leído y acepto la 
+          He leído y acepto la
           <a href="Politica-de-privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a>
         </label>
       </div>
@@ -471,23 +481,13 @@
 </section>
 
 
-
   <!-- ===== FOOTER ===== -->
 <footer class="site-footer">
-  <div class="footer-inner">
-    <!-- Logo a la izquierda -->
-    <div class="footer-left">
-      <img src="img/logo-color.svg" alt="Futuro en Movimiento" class="footer-logo">
-    </div>
-
-    <!-- Frase a la derecha -->
-    <div class="footer-right">
-      <p class="footer-quote footer-quote--shine">
-        "TODOS TENEMOS LO QUE NECESITAMOS PARA ALCANZAR NUESTRO OBJETIVO"
-      </p>
-    </div>
+  <!-- Solo la cita centrada -->
+  <div class="footer-quote footer-quote--shine">
+    "TODOS TENEMOS LO QUE NECESITAMOS PARA ALCANZAR NUESTRO OBJETIVO"
   </div>
-
+<br>
   <!-- Bloque inferior -->
   <div class="footer-bottom">
     <p class="footer-copy">© 2025 Futuro en Movimiento. Todos los derechos reservados.</p>
@@ -500,6 +500,7 @@
     </nav>
   </div>
 </footer>
+
 
 
 
