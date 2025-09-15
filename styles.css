@@ -215,6 +215,29 @@ h3{font-weight:700; font-size:1.15rem}
   50%  { background-size: 100% 3px; }
   100% { background-size: 0 3px; }
 }
+/* Contenedor del rotator */
+.rotator {
+  overflow: hidden;            /* ok mantenerlo */
+  /* por si hay escalado raro en iOS */
+}
+
+html { -webkit-text-size-adjust: 100%; } /* evita reescalado en Safari móvil */
+
+/* Cada palabra del rotator */
+.rotator .word {
+  display: block;              /* todas en bloques iguales */
+  height: 1.25em;              /* deja aire para las tildes */
+  line-height: 1.25em;         /* igual que la altura */
+  white-space: nowrap;         /* evita salto de línea en móvil */
+}
+
+/* Si usas <li> en vez de .word, aplica a li */
+.rotator li {
+  display: block;
+  height: 1.25em;
+  line-height: 1.25em;
+  white-space: nowrap;
+}
 
 /* Texto + botones */
 .hero-content{
