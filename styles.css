@@ -572,51 +572,121 @@ button:focus-visible,
 }
 .audience-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px}
 .audience-card h4{margin-bottom:6px; font-weight:700; color:#0b1222}
-
 /* =========================================================
-   🏠 SOBRE MI-DINAMISMO
+   🏠 SOBRE MI — HERO + DINAMISMO (typing)
    ========================================================= */
 
+/* ===== HERO: bloque oscuro ===== */
+.about-hero {
+  margin: clamp(16px, 3vw, 32px) 0;
+  background: linear-gradient(180deg, var(--g1), var(--g2));
+  border-radius: var(--radius);
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  color: #fff;
+}
 
-/* Ocultamos por defecto la versión móvil */
-.typing-mobile { display: none; }
+.about-hero__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(28px, 4vw, 64px);
+}
 
-/* Typing escritorio */
-.typing-desktop {
+/* ===== HERO TITLE con typing ===== */
+.about-hero .hero-title {
+  margin: 0 0 12px 0;
+  font-size: clamp(2rem, 5vw, 3rem); /* tamaño adaptable */
+  font-weight: 700;
+  line-height: 1.2;
+  color: #fff;
+}
+
+/* El span typing controla la animación sin cortar el h1 */
+.about-hero .typing {
+  display: inline-block;
+  vertical-align: top;
   overflow: hidden;
   white-space: nowrap;
   border-right: 3px solid var(--blue);
   width: 0;
-  display: inline-block;
-  animation: typing 5s steps(40, end) forwards,
-             hideCursor 0s 5s forwards;
+  animation:
+    typing-desktop 4s steps(40, end) forwards,
+    blink 0.7s step-end 6,
+    hideCaret 0s linear 4s forwards;
 }
 
-/* Typing del nombre en móvil */
-.typing-name {
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: 3px solid var(--blue);
-  width: 0;
-  display: inline-block;
-  animation: typing 3s steps(15, end) forwards,
-             hideCursor 0s 3s forwards;
+@keyframes typing-desktop { to { width: 100%; } }
+@keyframes blink { 50% { border-color: transparent; } }
+@keyframes hideCaret { to { border-right-color: transparent; } }
+
+/* Subtítulo fijo (solo visible en móvil) */
+.about-hero .tagline-mobile {
+  display: none;
+  margin-top: 8px;
 }
 
-/* Animaciones */
-@keyframes typing {
-  to { width: 100%; }
-}
-@keyframes hideCursor {
-  to { border-right: none; }
-}
-
-/* En móviles solo mostramos esta versión */
+/* ===== VERSIÓN MÓVIL ===== */
 @media (max-width: 768px) {
-  .typing-desktop { display: none; }
-  .typing-mobile { display: inline-block; }
+  .about-hero__inner { 
+    padding: 28px 20px; 
+  }
+
+  .about-hero .hero-title {
+    font-size: clamp(1.6rem, 7vw, 2.2rem); /* título adaptado al ancho */
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .about-hero .typing {
+    border-right: 3px solid var(--blue);
+    width: 0;
+    animation:
+      typing-mobile 3s steps(20, end) forwards,
+      blink 0.7s step-end 5,
+      hideCaret 0s linear 3s forwards;
+  }
+  @keyframes typing-mobile { to { width: 100%; } }
+
+  /* Solo se escribe el nombre */
+  .about-hero .name { display: inline; }
+  .about-hero .sep,
+  .about-hero .tagline-inline { display: none; }
+
+  /* Lema fijo debajo del nombre */
+  .about-hero .tagline-mobile {
+    display: block;
+    margin-top: 6px;
+    color: #fff;
+    font-size: 1.4rem;    /* más grande que párrafo, menor que título */
+    font-weight: 600;
+    line-height: 1.3;
+      /* centrado bajo el nombre */
+  }
+
+  /* Párrafos del bloque sobre mí */
+  .about-hero .about-copy p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    color: #fff;
+  }
+
+  /* Imagen responsive */
+  .about-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    display: block;
+  }
+
+  /* Grid en una sola columna en móvil */
+  .about-grid {
+    display: grid;
+    gap: 20px;
+  }
 }
 
+
+/* ===== ANIMACIONES GENERALES ===== */
 .fade-up {
   opacity: 0;
   transform: translateY(30px);
@@ -627,6 +697,18 @@ button:focus-visible,
   opacity: 1;
   transform: translateY(0);
 }
+.about-hero .about-copy p {
+  color: #fff;         /* texto blanco dentro del bloque oscuro */
+}
+
+.about-hero .about-copy strong {
+  color: var(--blue);  /* resaltar palabras en azul */
+}
+
+.about-hero .about-copy em {
+  color: var(--brown); /* opcional: cursivas en marrón suave */
+}
+
 
 /* =========================================================
    🏠 SERVICIOS-DINAMISMO
