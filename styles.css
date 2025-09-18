@@ -577,16 +577,44 @@ button:focus-visible,
    🏠 SOBRE MI-DINAMISMO
    ========================================================= */
 
-.about-hero h1 {
+
+/* Ocultamos por defecto la versión móvil */
+.typing-mobile { display: none; }
+
+/* Typing escritorio */
+.typing-desktop {
   overflow: hidden;
   white-space: nowrap;
   border-right: 3px solid var(--blue);
   width: 0;
-  animation: typing 3s steps(36, end) forwards; /* Ajusta 36 al nº de caracteres */
+  display: inline-block;
+  animation: typing 5s steps(40, end) forwards,
+             hideCursor 0s 5s forwards;
 }
 
+/* Typing del nombre en móvil */
+.typing-name {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid var(--blue);
+  width: 0;
+  display: inline-block;
+  animation: typing 3s steps(15, end) forwards,
+             hideCursor 0s 3s forwards;
+}
+
+/* Animaciones */
 @keyframes typing {
   to { width: 100%; }
+}
+@keyframes hideCursor {
+  to { border-right: none; }
+}
+
+/* En móviles solo mostramos esta versión */
+@media (max-width: 768px) {
+  .typing-desktop { display: none; }
+  .typing-mobile { display: inline-block; }
 }
 
 .fade-up {
