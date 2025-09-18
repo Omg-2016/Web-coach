@@ -582,17 +582,23 @@ button:focus-visible,
   white-space: nowrap;
   border-right: 3px solid var(--blue);
   width: 0;
-  animation: typing 2.5s steps(25, end) forwards;
+  animation: typing 3s steps(36, end) forwards; /* Ajusta 36 al nº de caracteres */
 }
 
 @keyframes typing {
   to { width: 100%; }
 }
 
-@keyframes blink {
-  50% { border-color: transparent; }
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /* =========================================================
    🏠 SERVICIOS-DINAMISMO
