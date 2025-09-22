@@ -30,7 +30,7 @@
   <link rel="stylesheet" href="styles.css?v=7" />
 
 <!-- Favicons (logo circular a color) -->
-<link rel="icon" href="img/logo-fondo-blanco-remove.png" type="image/png" sizes="32x32" />
+<link rel="icon" href="img/" type="image/png" sizes="32x32" />
 <link rel="icon" href="img/logo-fondo-blanco-remove.png" type="image/png" sizes="192x192" />
 <link rel="apple-touch-icon" href="img/logo-fondo-blanco-remove.png" sizes="180x180" />
 <link rel="shortcut icon" href="img/logo-fondo-blanco-remove.png" type="image/png">
@@ -196,7 +196,7 @@
 
     <!-- Columna derecha -->
     <figure class="hero-photo">
-      <img src="img/imagen-principal.png"
+      <img src="img/foto_perfl_profesional.JPG"
            alt="Retrato profesional"
            loading="eager"
            decoding="async" />
@@ -205,26 +205,6 @@
   </div>
 </section>
 
-
-<!-- HERO 
-<section id="inicio" class="hero hero--dark">
-  <div class="container hero-split">
-    
-    <!-- Bloque izquierdo con logo como fondo 
-    <div class="hero-copy">
-      <div class="hero-text">
-        <!-- Si quieres mantener el botón, lo dejas aquí 
-        <a class="btn btn--pill" href="#contacto">Contactar ahora</a>
-      </div>
-    </div>
-
-    <!-- Bloque derecho con la foto 
-    <figure class="hero-photo">
-      <img src="img/imagen-principal.png" alt="Retrato profesional"/>
-    </figure>
-
-  </div>
-</section> -->
 
 
   <!-- ===== PRESENTACIÓN / HOME ===== -->
@@ -283,14 +263,102 @@
         </div>
       </div>
 
+      <!-- ===== BANNER + PANEL DEL TEST (PEGAR BAJO "BENEFICIOS") ===== -->
+<section id="lead-banner" class="lead-banner">
+  <div class="container">
+    <div class="lead-row">
+      <div class="lead-text">
+        <h3>¿No sabes por dónde empezar?</h3>
+        <p>Haz el test de motivación (1 min) y llévate 3 recursos gratuitos.</p>
+      </div>
+      <button id="toggle-test" class="btn-pill" aria-controls="lead-panel" aria-expanded="false">
+        HAZ EL  TEST
+      </button>
+    </div>
+
+    <!-- Panel oculto (test + descargas) -->
+    <div id="lead-panel" class="lead-panel" hidden>
+      <form id="motivacion-form" class="quiz-form" novalidate>
+        <label>1) ¿Cómo te levantas la mayoría de los días?
+          <select required id="q1">
+            <option value="" disabled selected>Selecciona…</option>
+            <option value="3">Con energía y ganas</option>
+            <option value="2">Normal, depende del día</option>
+            <option value="1">Con pocas ganas o cansancio</option>
+          </select>
+        </label>
+
+        <label>2) ¿Qué tan claro tienes tu objetivo actual?
+          <select required id="q2">
+            <option value="" disabled selected>Selecciona…</option>
+            <option value="3">Totalmente definido</option>
+            <option value="2">Más o menos</option>
+            <option value="1">No lo tengo claro</option>
+          </select>
+        </label>
+
+        <label>3) ¿Qué nivel de compromiso sientes contigo?
+          <select required id="q3">
+            <option value="" disabled selected>Selecciona…</option>
+            <option value="3">Muy alto</option>
+            <option value="2">Medio</option>
+            <option value="1">Bajo</option>
+          </select>
+        </label>
+
+        <button type="submit" class="btn-primary">Ver resultado</button>
+      </form>
+
+      <div id="resultado" class="resultado" aria-live="polite"></div>
+
+<!-- ===== RECURSOS GRATUITOS ===== -->
+<section id="recursos" class="recursos">
+  <div class="container">
+    <h2>Recursos gratuitos</h2>
+    <p class="intro">Descarga estas guías y plantillas para empezar a transformar tu vida hoy mismo.</p>
+
+    <div class="recursos-grid">
+
+      <!-- Ebook -->
+      <article class="recurso-card">
+        <img src="img/cover_ebook.png" alt="5 pasos para transformar tu vida">
+        <h3>Mini e-book: 5 pasos</h3>
+        <a href="img/ebook_5_pasos_futuro_en_movimiento.pdf" target="_blank" class="btn-primary">Descargar PDF</a>
+      </article>
+
+      <!-- Agenda -->
+      <article class="recurso-card">
+        <img src="img/cover_agenda.png" alt="Agenda de hábitos semanal">
+        <h3>Agenda de hábitos semanal</h3>
+        <a href="img/agenda_habitos_futuro_en_movimiento.pdf" target="_blank" class="btn-primary">Descargar PDF</a>
+      </article>
+
+      <!-- Diario -->
+      <article class="recurso-card">
+        <img src="img/cover_diario.png" alt="Diario emocional 7 días">
+        <h3>Diario emocional (7 días)</h3>
+        <a href="img/diario_emocional_futuro_en_movimiento.pdf" target="_blank" class="btn-primary">Descargar PDF</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+    </div>
+  </div>
+</section>
       <div class="closing" style="margin-top:28px">
-        <p class="closing-quote">Tu futuro no se construye de golpe, se pone en movimiento paso a paso. Y hoy puede ser tu momento de empezar.</p>
+        <p class="cta-text">
+  Tu futuro no se construye de golpe; se pone en movimiento
+  <span class="cta-underline">paso a paso</span>.
+  <span class="cta-pill">Hoy puede ser tu momento</span>.
+      </p>
         <p class="closing-cta">
           <a href="#contacto" class="btn btn--pill">Reserva tu sesión</a>
         </p>
       </div>
     </div>
   </section>
+
 
   <!-- ===== BLOQUES / BANNERS con ACORDEÓN ===== -->
   <section class="split-block">
@@ -596,6 +664,34 @@
       }
     })();
   </script>
+
+  <!-- ===== JS ===== -->
+<script>
+const toggleBtn = document.getElementById('toggle-test');
+const panel = document.getElementById('lead-panel');
+
+toggleBtn.addEventListener('click', () => {
+  const open = panel.classList.toggle('open');
+  panel.hidden = !open;
+  toggleBtn.setAttribute('aria-expanded', open);
+  if (open) panel.scrollIntoView({behavior:'smooth', block:'start'});
+});
+
+document.getElementById("motivacion-form").addEventListener("submit", function(e){
+  e.preventDefault();
+  const val = id => parseInt(document.getElementById(id).value || 0);
+  const score = val("q1")+val("q2")+val("q3");
+  let msg = (score>=8) ? "¡Alta motivación! Plan de 7 días y a por ello."
+          : (score>=6) ? "Motivación media. Define una meta clara y micro-acciones."
+          : "Motivación baja. Empecemos con una acción de 5–10 minutos.";
+  const wa = "https://wa.me/34629488027?text=" + encodeURIComponent(
+    `Hola Santi, acabo de hacer el test. Mi puntuación: ${score}/9. ¿Me das un consejo personalizado?`
+  );
+  document.getElementById("resultado").innerHTML =
+    `Resultado: <strong>${score}/9</strong><br>${msg}<br>👉 <a href="${wa}" target="_blank" rel="noopener">Recibir consejo por WhatsApp</a>`;
+});
+</script>
+
 
 <!-- Botón flotante -->
 <button class="wa-fab" id="waFab" aria-label="Abrir chat de WhatsApp">
