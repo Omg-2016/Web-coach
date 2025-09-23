@@ -221,12 +221,40 @@ h3{font-weight:700; font-size:1.15rem}
 }
 
 /* Columna derecha (foto retrato) */
-.hero-photo{
-  width:100%; max-width:400px; max-height:420px; aspect-ratio:4/5;
-  border-radius:18px; overflow:hidden; box-shadow:0 6px 24px rgba(0,0,0,.35);
-  position:relative; margin:0 auto; align-self:center;
+.hero-photo {
+  width:auto;             /* en lugar de 100% */
+  max-width:550px;        /* más grande */
+  max-height:600px;       /* más alto */
+  aspect-ratio:auto;      /* deja que crezca sin límite fijo */
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 6px 24px rgba(0,0,0,.35);
+  position:relative;
+  margin:0 auto;
+  align-self:center;
 }
-.hero-photo img{width:100%; height:100%; object-fit:cover; display:block}
+.hero-split {
+  grid-template-columns: 1.2fr 1fr; /* la columna de la foto un poco más ancha */
+}
+/* Zoom fijo de la foto sin alterar el layout */
+.hero-photo { --zoom: 1.18; }          /* ajústalo: 1.10–1.30 */
+.hero-photo img{
+  width:100%; 
+  height:100%; 
+  object-fit:cover; 
+  display:block;
+  transform: scale(var(--zoom));
+  transform-origin: center;
+  transition: transform .3s ease;      /* suave por si luego haces hover */
+}
+
+/* En móvil, si la quieres normal */
+@media (max-width: 900px){
+  .hero-photo{ --zoom: 1; }
+}
+
+
+
 .hero-photo::after{
   content:""; position:absolute; inset:0;
   background:linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.25));
@@ -1221,3 +1249,70 @@ body.preloading{overflow:hidden}
 
 /* un poco menos de aire antes del botón */
 .closing .closing-cta{ margin-top: 10px; }
+
+
+/* Foto más grande en la sección SOBRE MÍ */
+.about-photo img {
+  max-width: 720px;   /* ajusta el valor según quieras */
+  margin: 0 auto;     /* centra la foto */
+  display: block;
+  border-radius: var(--radius);
+  box-shadow: 0 6px 24px rgba(0,0,0,.35);
+}
+
+/* En móvil: ocupa todo el ancho, sin límite */
+@media (max-width: 768px) {
+  .about-photo img {
+    max-width: 100%;
+  }
+}
+
+/* ===== Foto más grande SOLO en SOBRE MÍ ===== */
+.about-hero .about-photo{
+  overflow: hidden;
+  border-radius: var(--radius);
+  box-shadow: 0 6px 24px rgba(0,0,0,.35);
+  max-width: 640px !important;   /* ajusta 560–720px a tu gusto */
+  margin-left: auto;              /* la mantiene a la derecha si el grid no está activo */
+}
+
+.about-hero .about-photo img{
+  display:block;
+  width:100%;
+  height:auto;
+  transform: scale(1.18) !important;  /* “zoom” dentro del mismo cuadro */
+  transform-origin: center;
+}
+
+/* En móvil: sin zoom y ancho completo */
+@media (max-width: 768px){
+  .about-hero .about-photo{ max-width: 100% !important; }
+  .about-hero .about-photo img{ transform: none !important; }
+}
+
+
+/* INDEX — Mostrar la foto completa sin recorte */
+.hero-photo img {
+  width: 100% !important;
+  height: auto !important;         /* deja que crezca libremente */
+  object-fit: contain !important;  /* encaja todo sin cortar */
+  object-position: center !important;
+  background: #0e1626;             /* color de fondo detrás si sobra espacio */
+}
+
+/* ===== INDEX — foto sin recorte ===== */
+.hero .hero-photo{
+  --zoom: 1 !important;          /* cancela el zoom global */
+  max-height: none !important;
+  aspect-ratio: auto !important;
+}
+
+.hero .hero-photo > img{
+  transform: none !important;     /* quita el scale */
+  width: 100% !important;
+  height: auto !important;        /* deja crecer en altura */
+  object-fit: contain !important; /* no recorta */
+  object-position: center !important;
+  display: block;
+  background: #0e1626;            /* bandas de fondo si sobran */
+}
