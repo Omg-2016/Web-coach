@@ -86,11 +86,11 @@ h3{font-weight:700; font-size:1.15rem}
 
 /* Logo circular pequeño (opcional con vídeo) */
 .brand-logo{
-  height:56px; width:56px; border-radius:50%; overflow:hidden; flex-shrink:0;
+  height:64px; width:64px; border-radius:50%; overflow:hidden; flex-shrink:0;
   box-shadow:0 2px 6px rgba(0,0,0,.2); background:#000;
 }
 .logo-video{width:100%; height:100%; object-fit:cover; display:block}
-@media (max-width:560px){ .brand-logo{height:40px; width:40px} }
+@media (max-width:560px){ .brand-logo{height:52px; width:52px} }
 
 /* Botón hamburguesa */
 .hamburger{
@@ -124,6 +124,13 @@ h3{font-weight:700; font-size:1.15rem}
 [hidden]{display:none !important}
 .no-scroll{overflow:hidden}
 
+.nav a.active {
+  background:#0a1635;
+  color:#fff;
+  border-radius:8px;
+  padding:6px 12px;
+}
+
 /* Mostrar menú de escritorio a partir de 900px */
 @media (min-width:900px){
   .hamburger{display:none}
@@ -134,7 +141,32 @@ h3{font-weight:700; font-size:1.15rem}
 /* =========================================================
    🦸 HERO (Layout split, rotador, subrayado)
    ========================================================= */
-.hero{padding:0}
+/* HERO con aire simétrico arriba y abajo */
+.hero {
+  background:#000;
+  padding-top:30px;     /* 👈 margen negro arriba */
+  padding-bottom:0;  /* 👈 margen negro abajo */
+  display:flex;               /* 👈 truco: centra el grid dentro */
+  align-items:center;         /* 👈 centra verticalmente */
+}
+
+/* Asegura que el grid no empuje hacia fuera */
+.hero-split {
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:32px;
+  max-width:1200px;
+  margin:0 auto;
+  width:100%;
+  align-items:center;         /* centra las columnas entre sí */
+}
+/* Evita márgenes verticales extra en los hijos principales */
+.hero-copy,
+.hero-photo {
+  margin:0;
+}
+
+
 .hero--dark{background:#000}
 
 /* Split A (texto) + B (foto) */
@@ -201,59 +233,66 @@ h3{font-weight:700; font-size:1.15rem}
   display:block; height:1.25em; line-height:1.25em; white-space:nowrap;
 }
 
-/* Texto y CTA */
-.hero-content{margin-top:12px; max-width:60ch; text-align:center; margin-inline:auto}
-.hero-title{font-size:1.9rem; line-height:1.25; margin:0 0 10px; color:#fff}
-.hero-subtitle{font-size:1rem; font-weight:500; color:#cfd6df; margin:0 0 14px}
-.hero-actions{margin-top:20px; display:flex; gap:12px; flex-wrap:wrap; justify-content:center}
-.hero-copy .btn{margin:0}
-.hero-copy {
+/* ===== LAYOUT ESCRITORIO: dos columnas iguales y misma altura ===== */
+.hero-split{
+  display:grid;
+  grid-template-columns: 1fr 1fr;   /* pon 1.2fr 1fr si quieres la foto más ancha */
+  gap:32px;
+  align-items:stretch;              /* mismas alturas */
+}
+
+/* ===== TEXTO Y CTA (card azul) ===== */
+.hero-content{
+  /* nada raro aquí para no romper el layout del centro */
+  max-width:60ch;
+  text-align:center;
+  margin-inline:auto;
+  margin-top:0;                     /* importante: sin margen superior */
+}
+
+.hero-title{ font-size:1.9rem; line-height:1.25; margin:0 0 10px; color:#fff; }
+.hero-subtitle{ font-size:1rem; font-weight:500; color:#cfd6df; margin:0 0 14px; }
+.hero-actions{ margin-top:20px; display:flex; gap:12px; flex-wrap:wrap; justify-content:center; }
+.hero-copy .btn{ margin:0; }
+
+/* Card azul que debe igualar la altura de la foto */
+.hero-copy{
   background: linear-gradient(180deg, var(--g1), var(--g2));
   color:#fff;
   border-radius:24px;
   padding:56px 7% 48px;
+  height:100%;                      /* iguala altura con la foto */
+  margin:0;
+  overflow:hidden;                   /* evita colapso del primer margen (clave) */
   display:flex;
   flex-direction:column;
-  justify-content:center;
-
-  /* 👉 añade esta línea */
-  margin-top:20px;
+  justify-content:center;            /* centra el contenido vertical dentro */
 }
 
-/* Columna derecha (foto retrato) */
-.hero-photo {
-  width:auto;             /* en lugar de 100% */
-  max-width:550px;        /* más grande */
-  max-height:600px;       /* más alto */
-  aspect-ratio:auto;      /* deja que crezca sin límite fijo */
+/* ===== COLUMNA DERECHA (foto retrato) ===== */
+.hero-photo{
+  width:auto;
+  max-width:550px;
+  aspect-ratio:auto;
   border-radius:18px;
   overflow:hidden;
   box-shadow:0 6px 24px rgba(0,0,0,.35);
   position:relative;
-  margin:0 auto;
-  align-self:center;
+  margin:0;
+  height:100%;                       /* ocupa toda la celda, alinea arriba/abajo */
+  --zoom:1.18;
 }
-.hero-split {
-  grid-template-columns: 1.2fr 1fr; /* la columna de la foto un poco más ancha */
-}
-/* Zoom fijo de la foto sin alterar el layout */
-.hero-photo { --zoom: 1.18; }          /* ajústalo: 1.10–1.30 */
+
 .hero-photo img{
-  width:100%; 
-  height:100%; 
-  object-fit:cover; 
+  width:100%;
+  height:100%;
+  object-fit:cover;
   display:block;
   transform: scale(var(--zoom));
-  transform-origin: center;
-  transition: transform .3s ease;      /* suave por si luego haces hover */
+  transform-origin:center;
+  transition: transform .3s ease;
+  border-radius:18px;
 }
-
-/* En móvil, si la quieres normal */
-@media (max-width: 900px){
-  .hero-photo{ --zoom: 1; }
-}
-
-
 
 .hero-photo::after{
   content:""; position:absolute; inset:0;
@@ -261,13 +300,22 @@ h3{font-weight:700; font-size:1.15rem}
   mix-blend-mode:multiply; pointer-events:none; border-radius:18px;
 }
 
-/* Responsive hero */
+/* ===== RESPONSIVE ===== */
 @media (max-width:900px){
-  .hero-split{grid-template-columns:1fr}
-  .hero-content{text-align:center}
-  .hero-actions{justify-content:center}
-  .hero-photo{margin-top:24px; max-height:none; aspect-ratio:auto; max-width:none}
+  .hero-split{ grid-template-columns:1fr; }   /* se apila */
+  .hero-photo{
+    margin-top:24px;
+    height:auto; max-height:none; max-width:none; aspect-ratio:auto;
+  }
 }
+
+@media (max-width:560px){
+  .hero-photo img{
+    object-fit:contain;   /* que no corte en móvil */
+    transform:none;       /* sin zoom en móvil */
+  }
+}
+
 
 /* =========================================================
    🧱 BLOQUES SPLIT (50/50)
