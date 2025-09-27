@@ -131,6 +131,28 @@ h3{font-weight:700; font-size:1.15rem}
   padding:6px 12px;
 }
 
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #f5f7fb;
+  color: #111;
+  padding: 15px;
+  box-shadow: 0 -2px 6px rgba(0,0,0,.15);
+  font-size: 0.9rem;
+  z-index: 1000;
+}
+
+.cookie-banner p {
+  margin: 0 0 10px;
+}
+
+.cookie-actions {
+  display: flex;
+  gap: 10px;
+}
+
 /* Mostrar menú de escritorio a partir de 900px */
 @media (min-width:900px){
   .hamburger{display:none}

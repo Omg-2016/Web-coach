@@ -72,17 +72,19 @@
 
 <body>
 
-  <!-- Cookie Banner -->
-  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
-    <p>
-      Usamos cookies necesarias para que el sitio funcione y, opcionalmente, de analítica para mejorar la experiencia.
-      Puedes aceptar todas o quedarte solo con las necesarias. Más info en la <a href="Politica-cookies.html">política de cookies</a>.
-    </p>
-    <div class="cookie-actions">
-      <button class="btn btn--sm btn--ghost" id="cookies-reject">Solo necesarias</button>
-      <button class="btn btn--sm" id="cookies-accept">Aceptar todas</button>
-    </div>
+<!-- Banner de cookies -->
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
+  <p>
+    Usamos cookies necesarias para que el sitio funcione y, opcionalmente, de analítica para mejorar la experiencia.
+    Puedes aceptar todas o quedarte solo con las necesarias. Más info en la 
+    <a href="Politica-cookies.html">política de cookies</a>.
+  </p>
+  <div class="cookie-actions">
+    <button class="btn btn--sm btn--ghost" id="cookies-reject">Solo necesarias</button>
+    <button class="btn btn--sm" id="cookies-accept">Aceptar todas</button>
   </div>
+</div>
+
 <!-- Preloader -->
 <div id="preloader" class="preloader" aria-hidden="true">
   <div class="preloader-inner">
@@ -559,7 +561,7 @@
       <span>·</span>
       <a href="Politica-de-privacidad.html">Política de privacidad</a>
       <span>·</span>
-      <a href="Politica-cookies.html">Configurar cookies</a>
+      <a href="Configuracion_cookies.html">Configurar cookies</a>
     </nav>
   </div>
 </footer>
@@ -735,6 +737,57 @@ document.getElementById("motivacion-form").addEventListener("submit", function(e
     window.open(url, '_blank', 'noopener');
   });
 </script>
+
+<script>
+// ID de tu propiedad GA4
+const GA_MEASUREMENT_ID = "G-SX0VVQPPVH";
+
+// Función para cargar GA4 dinámicamente
+function loadGA4() {
+  const scriptTag = document.createElement("script");
+  scriptTag.async = true;
+  scriptTag.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+  document.head.appendChild(scriptTag);
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  window.gtag = gtag;
+  gtag('js', new Date());
+  gtag('config', GA_MEASUREMENT_ID);
+}
+
+// Mostrar/ocultar banner según consentimiento
+window.addEventListener("DOMContentLoaded", () => {
+  const banner = document.getElementById("cookie-banner");
+  const acceptBtn = document.getElementById("cookies-accept");
+  const rejectBtn = document.getElementById("cookies-reject");
+
+  // Revisar si ya existe elección en localStorage
+  const consent = localStorage.getItem("cookieConsent");
+  if (consent === "accepted") {
+    loadGA4(); // cargar GA4 directamente
+    banner.style.display = "none";
+  } else if (consent === "rejected") {
+    banner.style.display = "none"; // ocultar pero sin GA4
+  } else {
+    banner.style.display = "block";
+  }
+
+  // Botón Aceptar todas
+  acceptBtn.addEventListener("click", () => {
+    localStorage.setItem("cookieConsent", "accepted");
+    loadGA4();
+    banner.style.display = "none";
+  });
+
+  // Botón Solo necesarias
+  rejectBtn.addEventListener("click", () => {
+    localStorage.setItem("cookieConsent", "rejected");
+    banner.style.display = "none";
+  });
+});
+</script>
+
 
 
 </body>

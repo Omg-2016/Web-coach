@@ -163,3 +163,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setTimeout(hidePreloader, 5000);
 })();
+
+// ==========================
+// Configuración de cookies
+// ==========================
+const statusEl = document.querySelector(".status");
+
+// Leer estado de cookies desde localStorage
+const cookiePref = localStorage.getItem("cookie-pref");
+
+if (statusEl) {
+  if (cookiePref === "accepted") {
+    statusEl.textContent = "Aceptadas todas";
+    statusEl.classList.add("ok");
+  } else if (cookiePref === "rejected") {
+    statusEl.textContent = "Solo necesarias";
+    statusEl.classList.add("warn");
+  } else {
+    statusEl.textContent = "Sin decidir";
+    statusEl.classList.add("idle");
+  }
+}

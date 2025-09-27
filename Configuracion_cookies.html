@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Configuración de cookies</title>
+  <style>
+/* ======= Estilo página Configuración de cookies ======= */
+:root{
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #5b6473;
+  --border: #e6eaf1;
+  --primary: #5b89a7;         /* azul de tus botones */
+  --primary-600: #4c7a97;
+  --primary-50: #eaf1f6;
+  --danger: #e05858;
+  --shadow: 0 8px 24px rgba(16, 24, 40, .05);
+  --radius: 14px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.wrap{
+  max-width: 880px;
+  margin: clamp(24px, 5vw, 56px) auto;
+  padding: 0 20px;
+}
+
+.card{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: clamp(20px, 3.5vw, 32px);
+}
+
+/* Cabecera + pill de estado */
+h1{
+  font-size: clamp(28px, 4.2vw, 40px);
+  line-height: 1.15;
+  margin: 0 0 8px;
+  letter-spacing: -0.02em;
+}
+.status{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  vertical-align: middle;
+  margin-left: 10px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--primary-50);
+  color: #1d3557;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Texto principal y enlaces */
+p{margin: 0 0 14px; line-height: 1.65; color: var(--muted)}
+a{color: var(--primary-600); text-underline-offset: 2px}
+a:hover{opacity:.9}
+
+/* Tarjetas de opciones */
+.row{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 16px;
+  margin: 18px 0 8px;
+}
+@media (max-width:720px){ .row{grid-template-columns: 1fr} }
+
+.opt{
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) - 2px);
+  padding: 16px;
+  background: #fff;
+  transition: box-shadow .2s ease, transform .05s ease;
+}
+.opt:hover{ box-shadow: var(--shadow) }
+.opt h3{ margin: 0 0 8px; font-size: 18px; letter-spacing: -0.01em }
+.opt small{ color: var(--muted) }
+
+/* Botones */
+.btns{ display:flex; gap:12px; flex-wrap:wrap; margin-top: 10px }
+button{
+  appearance:none; border:0; cursor:pointer;
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-weight: 600; letter-spacing:.2px;
+  transition: transform .04s ease, filter .15s ease, background .15s ease;
+}
+button:active{ transform: translateY(1px) }
+
+.primary{ background: var(--primary); color:#fff }
+.primary:hover{ filter: brightness(0.98) }
+.ghost{ background: #eef1f5; color: #0b1622 }
+.ghost:hover{ filter: brightness(0.98) }
+.danger{ background: #f6e5e5; color:#8a1b1b }
+.danger:hover{ filter: brightness(0.98) }
+
+/* Pie de ayuda / enlaces secundarios */
+.footer-links{ margin-top: 20px; font-size: 14px; color: var(--muted) }
+
+.status.ok{ background: #e9f6ee; color:#225d3d }      /* aceptadas todas */
+.status.warn{ background: #fff4e5; color:#8a4b0f }    /* solo necesarias */
+.status.idle{ background: var(--primary-50); color:#1d3557 } /* sin decidir */
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Configuración de cookies
+        <span id="consent-status" class="status">Cargando…</span>
+      </h1>
+      <p>
+        Aquí puedes cambiar tu preferencia de cookies. Usamos <strong>cookies necesarias</strong> para
+        que el sitio funcione y, si das tu consentimiento, cookies de <strong>analítica</strong> (Google Analytics 4) para mejorar.
+        Más detalles en la <a href="Politica-cookies.html" target="_blank" rel="noopener">Política de cookies</a>.
+      </p>
+
+      <div class="row">
+        <div class="opt">
+          <h3>Solo necesarias</h3>
+          <small>No se cargarán cookies de analítica.</small>
+          <div class="btns">
+            <button class="ghost" id="btn-necessary">Guardar</button>
+          </div>
+        </div>
+        <div class="opt">
+          <h3>Aceptar todas</h3>
+          <small>Permites la analítica (GA4) además de las necesarias.</small>
+          <div class="btns">
+            <button class="primary" id="btn-accept">Guardar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="btns">
+        <button class="danger" id="btn-reset">Restablecer decisión</button>
+        <a href="/" class="ghost" style="text-decoration:none;display:inline-block;line-height:38px;padding:0 12px;border-radius:8px">Volver a la web</a>
+      </div>
+
+      <p class="footer-links">
+        ¿Buscas la política de privacidad? 👉
+        <a href="Politica-de-privacidad.html">Política de privacidad</a>
+      </p>
+    </div>
+
+
+
+    <footer style="margin-top: 18px; color:#6b7280;">
+      © <span id="y"></span> Futuro en Movimiento · Todos los derechos reservados
+    </footer>
+
+  </div>
+
+
+
+  <script>
+  const KEY = "cookieConsent"; // accepted | rejected  (también soporta all | necessary)
+  const statusEl = document.getElementById("consent-status");
+  const btnNecessary = document.getElementById("btn-necessary");
+  const btnAccept = document.getElementById("btn-accept");
+  const btnReset = document.getElementById("btn-reset");
+
+  function readLS(){ try { return localStorage.getItem(KEY); } catch(e){ return null; } }
+  function readCookie(){
+    const m = document.cookie.match(/(?:^|; )cookieConsent=([^;]+)/);
+    return m ? decodeURIComponent(m[1]) : null;
+  }
+  function normalize(v){
+    if (v === "all") return "accepted";
+    if (v === "necessary") return "rejected";
+    return v; // accepted | rejected | null
+  }
+  function write(val){
+    try { localStorage.setItem(KEY, val); } catch(e){}
+    document.cookie = KEY + "=" + val + "; path=/; max-age=" + (60*60*24*365) + "; SameSite=Lax";
+  }
+  function updateLabel(){
+    const v = normalize(readLS() || readCookie());
+    statusEl.textContent = v === "accepted" ? "Aceptadas todas"
+                            : v === "rejected" ? "Solo necesarias"
+                            : "Sin decidir";
+  }
+
+  // Al cargar, si detectamos el formato antiguo, lo migramos
+  (function migrate(){
+    const raw = readLS() || readCookie();
+    const norm = normalize(raw);
+    if (raw && raw !== norm) write(norm);
+  })();
+
+  btnNecessary.addEventListener("click", ()=>{ write("rejected"); updateLabel(); location.reload(); });
+  btnAccept.addEventListener("click", ()=>{ write("accepted"); updateLabel(); location.reload(); });
+  btnReset.addEventListener("click", ()=>{
+    try { localStorage.removeItem(KEY); } catch(e){}
+    document.cookie = KEY + "=; path=/; max-age=0; SameSite=Lax";
+    updateLabel(); location.reload();
+  });
+
+  updateLabel();
+</script>
+
+</body>
+</html>
