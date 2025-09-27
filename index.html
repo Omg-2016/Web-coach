@@ -29,11 +29,11 @@
   <!-- CSS principal -->
   <link rel="stylesheet" href="styles.css?v=7" />
 
-<!-- Favicons (logo circular a color) -->
-<link rel="icon" href="img/" type="image/png" sizes="32x32" />
-<link rel="icon" href="img/logo-fondo-blanco-remove.png" type="image/png" sizes="192x192" />
-<link rel="apple-touch-icon" href="img/logo-fondo-blanco-remove.png" sizes="180x180" />
-<link rel="shortcut icon" href="img/logo-fondo-blanco-remove.png" type="image/png">
+  <!-- Favicons (logo circular a color) -->
+  <link rel="icon" href="img/" type="image/png" sizes="32x32" />
+  <link rel="icon" href="img/logo-fondo-blanco-remove.png" type="image/png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="img/logo-fondo-blanco-remove.png" sizes="180x180" />
+  <link rel="shortcut icon" href="img/logo-fondo-blanco-remove.png" type="image/png">
 
   <!-- Social / Open Graph -->
   <meta property="og:site_name" content="Futuro en Movimiento" />
@@ -62,97 +62,102 @@
   <link rel="prefetch" href="servicios.html" />
 
   <!-- JS propios -->
-  <script src="menu.js?v=7" defer></script>
+  <script src="menu.js?v=9" defer></script>
   <script src="custom.js" defer></script>
 
   <!-- (Opcional futuro) PWA -->
   <!-- <link rel="manifest" href="site.webmanifest"> -->
 </head>
 
-
 <body>
 
-<!-- Banner de cookies -->
-<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
-  <p>
-    Usamos cookies necesarias para que el sitio funcione y, opcionalmente, de analítica para mejorar la experiencia.
-    Puedes aceptar todas o quedarte solo con las necesarias. Más info en la 
-    <a href="Politica-cookies.html">política de cookies</a>.
-  </p>
-  <div class="cookie-actions">
-    <button class="btn btn--sm btn--ghost" id="cookies-reject">Solo necesarias</button>
-    <button class="btn btn--sm" id="cookies-accept">Aceptar todas</button>
+  <!-- Banner de cookies -->
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
+    <p>
+      Usamos cookies necesarias para que el sitio funcione y, opcionalmente, de analítica para mejorar la experiencia.
+      Puedes aceptar todas o quedarte solo con las necesarias. Más info en la
+      <a href="Politica-cookies.html">política de cookies</a>.
+    </p>
+    <div class="cookie-actions">
+      <button class="btn btn--sm btn--ghost" id="cookies-reject">Solo necesarias</button>
+      <button class="btn btn--sm" id="cookies-accept">Aceptar todas</button>
+    </div>
   </div>
-</div>
 
-<!-- Preloader -->
-<div id="preloader" class="preloader" aria-hidden="true">
-  <div class="preloader-inner">
-    <!-- Logo en color -->
-    <img class="preloader-logo" src="img/logo-color.svg" alt="" />
+  <!-- Noscript (opcional, recomendado) -->
+  <noscript>
+    <div class="cookie-banner" style="position:static">
+      Estás navegando sin JavaScript: solo usamos cookies necesarias.
+      Lee la <a href="Politica-cookies.html">política de cookies</a>.
+    </div>
+  </noscript>
 
-    <!-- Anillo animado -->
-    <div class="preloader-ring" aria-hidden="true"></div>
+  <!-- Preloader -->
+  <div id="preloader" class="preloader" aria-hidden="true">
+    <div class="preloader-inner">
+      <!-- Logo en color -->
+      <img class="preloader-logo" src="img/logo-color.svg" alt="" />
 
-    <!-- Fallback sin JS -->
-    <noscript>
-      <style>.preloader{display:none!important}</style>
-    </noscript>
+      <!-- Anillo animado -->
+      <div class="preloader-ring" aria-hidden="true"></div>
+
+      <!-- Fallback sin JS -->
+      <noscript>
+        <style>.preloader{display:none!important}</style>
+      </noscript>
+    </div>
   </div>
-</div>
 
- <!-- Header / Navbar --> 
-<header class="site-header">
-  <div class="container header-inner">
+  <!-- Header / Navbar -->
+  <header class="site-header">
+    <div class="container header-inner">
 
-    <!-- Marca con vídeo -->
-    <a class="brand logo" href="index.html" aria-label="Volver al inicio">
-      <div class="brand-logo">
-        <video class="logo-video" playsinline autoplay muted loop preload="metadata" poster="img/video-poster.jpg">
-          <source src="img/video-logo_final.webm" type="video/webm">
-          <source src="img/video_logo_final.MP4" type="video/mp4">
-          Tu navegador no soporta vídeo HTML5.
-        </video>
-      </div>
-      <span class="brand-text">
-        <strong>Futuro en Movimiento</strong>
-        <small>Santiago Suárez · Coach · Facilitador</small>
-      </span>
-    </a>
+      <!-- Marca con vídeo -->
+      <a class="brand logo" href="index.html" aria-label="Volver al inicio">
+        <div class="brand-logo">
+          <video class="logo-video" playsinline autoplay muted loop preload="metadata" poster="img/video-poster.jpg">
+            <source src="img/video-logo_final.webm" type="video/webm">
+            <source src="img/video_logo_final.MP4" type="video/mp4">
+            Tu navegador no soporta vídeo HTML5.
+          </video>
+        </div>
+        <span class="brand-text">
+          <strong>Futuro en Movimiento</strong>
+          <small>Santiago Suárez · Coach · Facilitador</small>
+        </span>
+      </a>
 
-    <!-- Botón hamburguesa -->
-    <button class="hamburger nav-toggle" aria-controls="navMobile" aria-expanded="false" aria-label="Abrir menú">
-      <span></span><span></span><span></span>
-    </button>
+      <!-- Botón hamburguesa -->
+      <button class="hamburger nav-toggle" aria-controls="navMobile" aria-expanded="false" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
 
-    <!-- Menú escritorio -->
-    <nav class="nav nav-desktop" aria-label="Principal">
-      <a href="index.html" class="active">Inicio</a>
-      <a href="sobre-mi.html">Sobre mí</a>
-      <a href="servicios.html">Servicios</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
+      <!-- Menú escritorio -->
+      <nav class="nav nav-desktop" aria-label="Principal">
+        <a href="index.html" class="active">Inicio</a>
+        <a href="sobre-mi.html">Sobre mí</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
 
-    <!-- Menú móvil (oculto por defecto con [hidden]) -->
-    <nav id="navMobile" class="nav-mobile" aria-label="Principal móvil" hidden>
-      <a href="index.html" aria-current="page">Inicio</a>
-      <a href="sobre-mi.html">Sobre mí</a>
-      <a href="servicios.html">Servicios</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
+      <!-- Menú móvil (oculto por defecto con [hidden]) -->
+      <nav id="navMobile" class="nav-mobile" aria-label="Principal móvil" hidden>
+        <a href="index.html" aria-current="page">Inicio</a>
+        <a href="sobre-mi.html">Sobre mí</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
 
-  </div>
-</header>
-
+    </div>
+  </header>
 
   <!-- HERO 
   <section id="inicio" class="hero hero--dark">
     <div class="container hero-split">
       <div class="hero-copy">
-<div class="hero-text">
-  <img src="img/logo-BN.svg" alt="Futuro en Movimiento" class="hero-logo">
-</div>
-<!--
+        <div class="hero-text">
+          <img src="img/logo-BN.svg" alt="Futuro en Movimiento" class="hero-logo">
+        </div>
         <h1><span>ÉXITO GRACIAS AL</span><br/>COACHING VITAL</h1>
         <p class="lead">Acompaño a adolescentes, familias y equipos para convertir objetivos en acciones concretas.</p>
         <a class="btn btn--pill" href="#contacto">Contactar ahora</a>
@@ -163,52 +168,42 @@
     </div>
   </section>-->
 
+  <!-- HERO -->
+  <section id="inicio" class="hero hero--dark" aria-labelledby="hero-title">
+    <div class="container hero-split">
 
-<!-- HERO -->
-<section id="inicio" class="hero hero--dark" aria-labelledby="hero-title">
-  <div class="container hero-split">
+      <!-- Columna izquierda -->
+      <div class="hero-copy">
 
-    <!-- Columna izquierda -->
-    <div class="hero-copy">
-      
-      <!-- Opción A: Frases rotatorias -->
-      <div class="rotator" aria-hidden="true">
-        <span class="rotator-item in">MÁS CLARIDAD</span>
-        <span class="rotator-item">MÁS CONFIANZA</span>
-        <span class="rotator-item">MÁS ACCIÓN</span>
-        <span class="rotator-item">MÁS SEGURIDAD</span>
-
-      </div>
-
-      <!-- Opción B: Claim con subrayado -->
-      <div class="hero-content">
-        <h1 id="hero-title" class="hero-title u-anim">
-        Todos tenemos lo que necesitamos para alcanzar nuestro objetivo
-        </h1>
-        <br>
-        <br>
-        <p class="hero-subtitle">Santiago Suárez · Coach · Facilitador</p>
-        <div class="hero-actions" role="group" aria-label="Acciones principales">
-          <a class="btn btn--pill" href="#contacto">Contactar ahora</a>
-        
+        <!-- Opción A: Frases rotatorias -->
+        <div class="rotator" aria-hidden="true">
+          <span class="rotator-item in">MÁS CLARIDAD</span>
+          <span class="rotator-item">MÁS CONFIANZA</span>
+          <span class="rotator-item">MÁS ACCIÓN</span>
+          <span class="rotator-item">MÁS SEGURIDAD</span>
         </div>
+
+        <!-- Opción B: Claim con subrayado -->
+        <div class="hero-content">
+          <h1 id="hero-title" class="hero-title u-anim">
+            Todos tenemos lo que necesitamos para alcanzar nuestro objetivo
+          </h1>
+          <br><br>
+          <p class="hero-subtitle">Santiago Suárez · Coach · Facilitador</p>
+          <div class="hero-actions" role="group" aria-label="Acciones principales">
+            <a class="btn btn--pill" href="#contacto">Contactar ahora</a>
+          </div>
+        </div>
+
       </div>
 
+      <!-- Columna derecha -->
+      <figure class="hero-photo">
+        <img src="img/santi_perfil_luz.jpg" alt="Retrato profesional" loading="eager" decoding="async" />
+      </figure>
+      <br>
     </div>
-
-    <!-- Columna derecha -->
-    <figure class="hero-photo">
-      
-      <img src="img/santi_perfil_luz.jpg"
-           alt="Retrato profesional"
-           loading="eager"
-           decoding="async" />
-    </figure>
-    <br>
-  </div>
-</section>
-
-
+  </section>
 
   <!-- ===== PRESENTACIÓN / HOME ===== -->
   <section class="intro-section">
@@ -267,101 +262,101 @@
       </div>
 
       <!-- ===== BANNER + PANEL DEL TEST (PEGAR BAJO "BENEFICIOS") ===== -->
-<section id="lead-banner" class="lead-banner">
-  <div class="container">
-    <div class="lead-row">
-      <div class="lead-text">
-        <h3>¿No sabes por dónde empezar?</h3>
-        <p>Haz el test de motivación (1 min) y llévate 3 recursos gratuitos.</p>
-      </div>
-      <button id="toggle-test" class="btn-pill" aria-controls="lead-panel" aria-expanded="false">
-        HAZ EL  TEST
-      </button>
-    </div>
+      <section id="lead-banner" class="lead-banner">
+        <div class="container">
+          <div class="lead-row">
+            <div class="lead-text">
+              <h3>¿No sabes por dónde empezar?</h3>
+              <p>Haz el test de motivación (1 min) y llévate 3 recursos gratuitos.</p>
+            </div>
+            <button id="toggle-test" class="btn-pill" aria-controls="lead-panel" aria-expanded="false">
+              HAZ EL  TEST
+            </button>
+          </div>
 
-    <!-- Panel oculto (test + descargas) -->
-    <div id="lead-panel" class="lead-panel" hidden>
-      <form id="motivacion-form" class="quiz-form" novalidate>
-        <label>1) ¿Cómo te levantas la mayoría de los días?
-          <select required id="q1">
-            <option value="" disabled selected>Selecciona…</option>
-            <option value="3">Con energía y ganas</option>
-            <option value="2">Normal, depende del día</option>
-            <option value="1">Con pocas ganas o cansancio</option>
-          </select>
-        </label>
+          <!-- Panel oculto (test + descargas) -->
+          <div id="lead-panel" class="lead-panel" hidden>
+            <form id="motivacion-form" class="quiz-form" novalidate>
+              <label>1) ¿Cómo te levantas la mayoría de los días?
+                <select required id="q1">
+                  <option value="" disabled selected>Selecciona…</option>
+                  <option value="3">Con energía y ganas</option>
+                  <option value="2">Normal, depende del día</option>
+                  <option value="1">Con pocas ganas o cansancio</option>
+                </select>
+              </label>
 
-        <label>2) ¿Qué tan claro tienes tu objetivo actual?
-          <select required id="q2">
-            <option value="" disabled selected>Selecciona…</option>
-            <option value="3">Totalmente definido</option>
-            <option value="2">Más o menos</option>
-            <option value="1">No lo tengo claro</option>
-          </select>
-        </label>
+              <label>2) ¿Qué tan claro tienes tu objetivo actual?
+                <select required id="q2">
+                  <option value="" disabled selected>Selecciona…</option>
+                  <option value="3">Totalmente definido</option>
+                  <option value="2">Más o menos</option>
+                  <option value="1">No lo tengo claro</option>
+                </select>
+              </label>
 
-        <label>3) ¿Qué nivel de compromiso sientes contigo?
-          <select required id="q3">
-            <option value="" disabled selected>Selecciona…</option>
-            <option value="3">Muy alto</option>
-            <option value="2">Medio</option>
-            <option value="1">Bajo</option>
-          </select>
-        </label>
+              <label>3) ¿Qué nivel de compromiso sientes contigo?
+                <select required id="q3">
+                  <option value="" disabled selected>Selecciona…</option>
+                  <option value="3">Muy alto</option>
+                  <option value="2">Medio</option>
+                  <option value="1">Bajo</option>
+                </select>
+              </label>
 
-        <button type="submit" class="btn-primary">Ver resultado</button>
-      </form>
+              <button type="submit" class="btn-primary">Ver resultado</button>
+            </form>
 
-      <div id="resultado" class="resultado" aria-live="polite"></div>
+            <div id="resultado" class="resultado" aria-live="polite"></div>
 
-<!-- ===== RECURSOS GRATUITOS ===== -->
-<section id="recursos" class="recursos">
-  <div class="container">
-    <h2>Recursos gratuitos</h2>
-    <p class="intro">Descarga estas guías y plantillas para empezar a transformar tu vida hoy mismo.</p>
+            <!-- ===== RECURSOS GRATUITOS ===== -->
+            <section id="recursos" class="recursos">
+              <div class="container">
+                <h2>Recursos gratuitos</h2>
+                <p class="intro">Descarga estas guías y plantillas para empezar a transformar tu vida hoy mismo.</p>
 
-    <div class="recursos-grid">
+                <div class="recursos-grid">
 
-      <!-- Ebook -->
-      <article class="recurso-card">
-        <img src="img/cover_ebook.png" alt="5 pasos para transformar tu vida">
-        <h3>Mini e-book: 5 pasos</h3>
-        <a href="img/ebook_5_pasos_futuro_en_movimiento.pdf" target="_blank" class="btn-primary">Descargar PDF</a>
-      </article>
+                  <!-- Ebook -->
+                  <article class="recurso-card">
+                    <img src="img/cover_ebook.png" alt="5 pasos para transformar tu vida">
+                    <h3>Mini e-book: 5 pasos</h3>
+                    <a href="img/ebook_5_pasos_futuro_en_movimiento.pdf" target="_blank" class="btn-primary">Descargar PDF</a>
+                  </article>
 
-      <!-- Agenda -->
-      <article class="recurso-card">
-        <img src="img/cover_agenda.png" alt="Agenda de hábitos semanal">
-        <h3>Agenda de hábitos semanal</h3>
-        <a href="img/agenda_habitos_futuro_en_movimiento.pdf" target="_blank" class="btn-primary">Descargar PDF</a>
-      </article>
+                  <!-- Agenda -->
+                  <article class="recurso-card">
+                    <img src="img/cover_agenda.png" alt="Agenda de hábitos semanal">
+                    <h3>Agenda de hábitos semanal</h3>
+                    <a href="img/agenda_habitos_futuro_en_movimiento.pdf" target="_blank" class="btn-primary">Descargar PDF</a>
+                  </article>
 
-      <!-- Diario -->
-      <article class="recurso-card">
-        <img src="img/cover_diario.png" alt="Diario emocional 7 días">
-        <h3>Diario emocional (7 días)</h3>
-        <a href="img/diario_emocional_futuro_en_movimiento.pdf" target="_blank" class="btn-primary">Descargar PDF</a>
-      </article>
+                  <!-- Diario -->
+                  <article class="recurso-card">
+                    <img src="img/cover_diario.png" alt="Diario emocional 7 días">
+                    <h3>Diario emocional (7 días)</h3>
+                    <a href="img/diario_emocional_futuro_en_movimiento.pdf" target="_blank" class="btn-primary">Descargar PDF</a>
+                  </article>
 
-    </div>
-  </div>
-</section>
-    </div>
-  </div>
-</section>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+
       <div class="closing" style="margin-top:28px">
         <p class="cta-text">
-  Tu futuro no se construye de golpe; se pone en movimiento
-  <span class="cta-underline">paso a paso</span>.
-  <span class="cta-pill">Hoy puede ser tu momento</span>.
-      </p>
+          Tu futuro no se construye de golpe; se pone en movimiento
+          <span class="cta-underline">paso a paso</span>.
+          <span class="cta-pill">Hoy puede ser tu momento</span>.
+        </p>
         <p class="closing-cta">
           <a href="#contacto" class="btn btn--pill">Reserva tu sesión</a>
         </p>
       </div>
     </div>
   </section>
-
 
   <!-- ===== BLOQUES / BANNERS con ACORDEÓN ===== -->
   <section class="split-block">
@@ -415,7 +410,6 @@
         <div class="more-text" hidden>
           <p>
             En estas sesiones aprenderás a reconocer los motivos que no te dejan avanzar, trabajarás con herramientas prácticas y diseñarás un plan de acción adaptado a ti. El objetivo es que avances con mayor confianza y motivación, construyendo hábitos que puedas mantener en el tiempo.</p>
-          
         </div>
       </article>
 
@@ -428,7 +422,6 @@
           <p>
             Aquí reflexionarás sobre tus intereses y talentos, explorarás opciones de estudio o carrera y crearás un plan realista con pasos concretos. La meta es que tomes decisiones con seguridad, aproveches tus fortalezas y avances hacia un futuro académico-profesional alineado contigo.
           </p>
-
         </div>
       </article>
 
@@ -441,13 +434,10 @@
           <p>
             En este proceso aprenderás a profundizar en quién eres, dar sentido a lo que haces y transformar tus prioridades en acciones claras. Trabajarás con tus valores como brújula, gestionarás tus emociones y diseñarás una estrategia que te permita avanzar con confianza hacia lo que realmente quieres.
           </p>
-
         </div>
       </article>
     </div>
   </section>
-
-
 
   <!-- ===== BLOQUE FINAL ===== -->
   <section class="split-block">
@@ -463,113 +453,137 @@
     </div>
   </section>
 
-<!-- ===== CONTACTO ===== -->
-<section id="contacto" class="contact-band">
-  <div class="container contact-grid">
-    
-    <!-- Columna izquierda: info + redes + logo -->
-    <div class="contact-info">
-      <h2>Trabajemos juntos en tus objetivos</h2>
-      <p><strong>Teléfono:</strong> <a href="https://wa.me/34629488027" target="_blank" rel="noopener">+34 629 488 027</a></p>
-      <p><strong>Email:</strong> <a href="mailto:santiago.suarez@futuroenmovimiento.es">santiago.suarez@futuroenmovimiento.es</a></p>
-      <p><strong>Ubicación:</strong> Barcelona · Sesiones online y presenciales</p>
+  <!-- ===== CONTACTO ===== -->
+  <section id="contacto" class="contact-band">
+    <div class="container contact-grid">
+      <!-- Columna izquierda: info + redes + logo -->
+      <div class="contact-info">
+        <h2>Trabajemos juntos en tus objetivos</h2>
+        <p><strong>Teléfono:</strong> <a href="https://wa.me/34629488027" target="_blank" rel="noopener">+34 629 488 027</a></p>
+        <p><strong>Email:</strong> <a href="mailto:santiago.suarez@futuroenmovimiento.es">santiago.suarez@futuroenmovimiento.es</a></p>
+        <p><strong>Ubicación:</strong> Barcelona · Sesiones online y presenciales</p>
 
-      <!-- Redes sociales -->
-      <div class="socials">
-        <ul class="social-list">
-          <li>
-            <a href="https://www.linkedin.com/in/santiago-suarez-gil-1407202b7" target="_blank" rel="noopener" aria-label="LinkedIn">
-              <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
-                <path fill="currentColor" d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.5 8h4v16h-4V8zm7 0h3.8v2.1h.05c.53-.96 1.84-2.1 3.79-2.1 4.05 0 4.8 2.66 4.8 6.12V24h-4v-6.92c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.79-2.65 3.65V24h-4V8z"/>
-              </svg>
-            </a>
-          </li>
-          <li>
-            <a href="https://www.instagram.com/futuro.en.movimiento/" target="_blank" rel="noopener" aria-label="Instagram">
-              <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
-                <path fill="currentColor" d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.06 1.8.25 2.22.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.17.42.36 1.05.42 2.22.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.06 1.17-.25 1.8-.42 2.22-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.17-1.05.36-2.22.42-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.06-1.8-.25-2.22-.42a3.99 3.99 0 0 1-1.38-.9 3.99 3.99 0 0 1-.9-1.38c-.17-.42-.36-1.05-.42-2.22C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.06-1.17.25-1.8.42-2.22.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.17 1.05-.36 2.22-.42C8.42 2.21 8.8 2.2 12 2.2Zm0 3.2a6.8 6.8 0 1 1 0 13.6 6.8 6.8 0 0 1 0-13.6Zm0 1.8a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm5.1-2.75a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6Z"/>
-              </svg>
-            </a>
-          </li>
-          <li>
-            <a href="https://www.tiktok.com/@futuroenmovimiento" target="_blank" rel="noopener" aria-label="TikTok">
-              <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
-                <path fill="currentColor" d="M21 8.3a7.2 7.2 0 0 1-4.7-1.7v7.3a6.2 6.2 0 1 1-5-6.1v2.5a3.7 3.7 0 1 0 2.5 3.5V2h2.3c.2.8.6 1.6 1.2 2.2A4.9 4.9 0 0 0 21 5v3.3Z"/>
-              </svg>
-            </a>
-          </li>
-        </ul>
+        <!-- Redes sociales -->
+        <div class="socials">
+          <ul class="social-list">
+            <li>
+              <a href="https://www.linkedin.com/in/santiago-suarez-gil-1407202b7" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor" d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.5 8h4v16h-4V8zm7 0h3.8v2.1h.05c.53-.96 1.84-2.1 3.79-2.1 4.05 0 4.8 2.66 4.8 6.12V24h-4v-6.92c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.79-2.65 3.65V24h-4V8z"/>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/futuro.en.movimiento/" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor" d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.06 1.8.25 2.22.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.17.42.36 1.05.42 2.22.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.06 1.17-.25 1.8-.42 2.22-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.17-1.05.36-2.22.42-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.06-1.8-.25-2.22-.42a3.99 3.99 0 0 1-1.38-.9 3.99 3.99 0 0 1-.9-1.38c-.17-.42-.36-1.05-.42-2.22C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.06-1.17.25-1.8.42-2.22.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.17 1.05-.36 2.22-.42C8.42 2.21 8.8 2.2 12 2.2Zm0 3.2a6.8 6.8 0 1 1 0 13.6 6.8 6.8 0 0 1 0-13.6Zm0 1.8a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm5.1-2.75a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6Z"/>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tiktok.com/@futuroenmovimiento" target="_blank" rel="noopener" aria-label="TikTok">
+                <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor" d="M21 8.3a7.2 7.2 0 0 1-4.7-1.7v7.3a6.2 6.2 0 1 1-5-6.1v2.5a3.7 3.7 0 1 0 2.5 3.5V2h2.3c.2.8.6 1.6 1.2 2.2A4.9 4.9 0 0 0 21 5v3.3Z"/>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Logo debajo de redes -->
+        <div class="contact-logo">
+          <img src="img/logo-fondo-negro-removebg-preview.png" alt="Futuro en Movimiento" />
+        </div>
       </div>
 
-      <!-- Logo debajo de redes -->
-      <div class="contact-logo">
-        <img src="img/logo-fondo-negro-removebg-preview.png" alt="Futuro en Movimiento" />
-      </div>
-    </div>
-
-    <!-- Columna derecha: formulario -->
-    
-
-    <form class="form contact-form" action="https://formspree.io/f/mnnbbwoy" method="post">
-      <label>
-        <span>Nombre*</span>
-        <input type="text" name="nombre" required>
-      </label>
-      <label>
-        <span>Teléfono*</span>
-        <input type="tel" name="telefono" required>
-      </label>
-      <label>
-        <span>Email*</span>
-        <input type="email" name="email" required>
-      </label>
-      <label>
-        <span>Mensaje*</span>
-        <textarea name="mensaje" rows="6" required></textarea>
-      </label>
-
-      <p class="req">* Indica los campos obligatorios</p>
-
-      <button class="btn btn--pill" type="submit">Enviar</button>
-
-      <!-- Consentimiento RGPD -->
-      <div class="consent">
-        <input type="checkbox" id="privacidad" name="privacidad" required>
-        <label for="privacidad">
-          He leído y acepto la
-          <a href="Politica-de-privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a>
+      <!-- Columna derecha: formulario -->
+      <form class="form contact-form" action="https://formspree.io/f/mnnbbwoy" method="post">
+        <label>
+          <span>Nombre*</span>
+          <input type="text" name="nombre" required>
         </label>
-      </div>
-    </form>
+        <label>
+          <span>Teléfono*</span>
+          <input type="tel" name="telefono" required>
+        </label>
+        <label>
+          <span>Email*</span>
+          <input type="email" name="email" required>
+        </label>
+        <label>
+          <span>Mensaje*</span>
+          <textarea name="mensaje" rows="6" required></textarea>
+        </label>
 
+        <p class="req">* Indica los campos obligatorios</p>
+
+        <button class="btn btn--pill" type="submit">Enviar</button>
+
+        <!-- Consentimiento RGPD -->
+        <div class="consent">
+          <input type="checkbox" id="privacidad" name="privacidad" required>
+          <label for="privacidad">
+            He leído y acepto la
+            <a href="Politica-de-privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a>
+          </label>
+        </div>
+
+        <!-- Capa informativa corta RGPD -->
+        <p class="form-legal" style="font-size:.85rem;color:#6b7280;line-height:1.4;margin:8px 0 12px;">
+          Info básica de protección de datos: <strong>Responsable</strong> Santiago Suárez (Futuro en Movimiento).
+          <strong>Finalidad</strong> responder a tu consulta. <strong>Legitimación</strong> tu consentimiento.
+          <strong>Destinatarios</strong> IONOS (hosting) y Formspree.
+          <strong>Derechos</strong> en <a href="Politica-de-privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a>.
+        </p>
+
+        <!-- Metadatos del consentimiento (quedan en el envío de Formspree) -->
+        <input type="hidden" name="privacy_version" value="2025-09-27">
+        <input type="hidden" name="privacy_url" value="https://futuroenmovimiento.es/Politica-de-privacidad.html">
+        <input type="hidden" name="consent_timestamp" id="consent_ts">
+      </form>
+
+    </div>
+  </section>
+  <!-- Botón flotante -->
+  <button class="wa-fab" id="waFab" aria-label="Abrir chat de WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white">
+      <path d="M12.04 2a9.9 9.9 0 0 0-8.5 15l-1 3.7 3.8-1a9.9 9.9 0 1 0 5.7-17.7Zm5.8 14.4c-.2.6-1 1-1.6 1.1-.4 0-.9.1-3-.6-2.5-.9-4-3.1-4.2-3.3-.2-.3-1-1.3-1-2.5s.6-1.8.8-2c.2-.3.5-.4.7-.4h.5c.2 0 .4 0 .6.5.2.6.7 2 .7 2.1 0 .2.1.3 0 .5-.1.2-.2.3-.4.5l-.3.4c-.1.1-.3.2-.1.6.2.4.7 1.2 1.5 2 .8.8 1.6 1.1 2 .1l.3-.4c.2-.3.3-.3.5-.4h.5c.1 0 .3 0 .5.2.1.2.7.5.8.9.1.4.1.7 0 1Z"/>
+    </svg>
+  </button>
+
+  <!-- Caja de chat -->
+  <div class="wa-box" id="waBox" aria-hidden="true">
+    <div class="wa-header">
+      <span>WhatsApp — Futuro en Movimiento</span>
+      <button class="wa-close" id="waClose" aria-label="Cerrar">×</button>
+    </div>
+    <div class="wa-body">
+      <p>Hola 👋 ¿En qué puedo ayudarte?</p>
+      <textarea id="waMsg" rows="3" placeholder="Escribe tu mensaje..."></textarea>
+    </div>
+    <div class="wa-actions">
+      <button id="waSend" class="btn btn--pill">Enviar por WhatsApp</button>
+    </div>
   </div>
-</section>
-
-
   <!-- ===== FOOTER ===== -->
-<footer class="site-footer">
-  <!-- Solo la cita centrada -->
-  <div class="footer-quote footer-quote--shine">
-    "TODOS TENEMOS LO QUE NECESITAMOS PARA ALCANZAR NUESTRO OBJETIVO"
-  </div>
-<br>
-  <!-- Bloque inferior -->
-  <div class="footer-bottom">
-    <p class="footer-copy">© 2025 Futuro en Movimiento. Todos los derechos reservados.</p>
-    <nav class="footer-links">
-      <a href="aviso-legal.html">Aviso legal</a>
-      <span>·</span>
-      <a href="Politica-de-privacidad.html">Política de privacidad</a>
-      <span>·</span>
-      <a href="Configuracion_cookies.html">Configurar cookies</a>
-    </nav>
-  </div>
-</footer>
-
-
-
-
-
+  <footer class="site-footer">
+    <!-- Solo la cita centrada -->
+    <div class="footer-quote footer-quote--shine">
+      "TODOS TENEMOS LO QUE NECESITAMOS PARA ALCANZAR NUESTRO OBJETIVO"
+    </div>
+    <br>
+    <!-- Bloque inferior -->
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Futuro en Movimiento. Todos los derechos reservados.</p>
+      <nav class="footer-links">
+        <a href="aviso-legal.html">Aviso legal</a>
+        <span>·</span>
+        <a href="Politica-de-privacidad.html">Política de privacidad</a>
+        <span>·</span>
+        <a href="Configuracion_cookies.html">Configurar cookies</a>
+      </nav>
+    </div>
+  </footer>
 
   <!-- ===== Scripts utilidades ===== -->
   <script>
@@ -663,131 +677,70 @@
   </script>
 
   <!-- ===== JS ===== -->
+  <script>
+    const toggleBtn = document.getElementById('toggle-test');
+    const panel = document.getElementById('lead-panel');
+
+    toggleBtn.addEventListener('click', () => {
+      const open = panel.classList.toggle('open');
+      panel.hidden = !open;
+      toggleBtn.setAttribute('aria-expanded', open);
+      if (open) panel.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+
+    document.getElementById("motivacion-form").addEventListener("submit", function(e){
+      e.preventDefault();
+      const val = id => parseInt(document.getElementById(id).value || 0);
+      const score = val("q1")+val("q2")+val("q3");
+      let msg = (score>=8) ? "¡Alta motivación! Plan de 7 días y a por ello."
+              : (score>=6) ? "Motivación media. Define una meta clara y micro-acciones."
+              : "Motivación baja. Empecemos con una acción de 5–10 minutos.";
+      const wa = "https://wa.me/34629488027?text=" + encodeURIComponent(
+        `Hola Santi, acabo de hacer el test. Mi puntuación: ${score}/9. ¿Me das un consejo personalizado?`
+      );
+      document.getElementById("resultado").innerHTML =
+        `Resultado: <strong>${score}/9</strong><br>${msg}<br>👉 <a href="${wa}" target="_blank" rel="noopener">Recibir consejo por WhatsApp</a>`;
+    });
+  </script>
+
+
+  <script>
+    // Número en formato internacional (España: 34)
+    const WA_NUMBER = "34629488027";
+
+    const $fab   = document.getElementById('waFab');
+    const $box   = document.getElementById('waBox');
+    const $close = document.getElementById('waClose');
+    const $send  = document.getElementById('waSend');
+    const $msg   = document.getElementById('waMsg');
+
+    // Abrir/cerrar chatbox
+    $fab.addEventListener('click', () => {
+      $box.classList.toggle('is-open');
+      if ($box.classList.contains('is-open') && !$msg.value) {
+        $msg.value = "Hola, me interesa una sesión de coaching 🙂";
+      }
+    });
+    $close.addEventListener('click', () => $box.classList.remove('is-open'));
+
+    // Enviar mensaje
+    $send.addEventListener('click', () => {
+      const text = encodeURIComponent($msg.value || "Hola 👋");
+      const url = `https://wa.me/${WA_NUMBER}?text=${text}`;
+      window.open(url, '_blank', 'noopener');
+    });
+  </script>
+
+  <!-- Sello de tiempo del consentimiento del formulario -->
 <script>
-const toggleBtn = document.getElementById('toggle-test');
-const panel = document.getElementById('lead-panel');
-
-toggleBtn.addEventListener('click', () => {
-  const open = panel.classList.toggle('open');
-  panel.hidden = !open;
-  toggleBtn.setAttribute('aria-expanded', open);
-  if (open) panel.scrollIntoView({behavior:'smooth', block:'start'});
-});
-
-document.getElementById("motivacion-form").addEventListener("submit", function(e){
-  e.preventDefault();
-  const val = id => parseInt(document.getElementById(id).value || 0);
-  const score = val("q1")+val("q2")+val("q3");
-  let msg = (score>=8) ? "¡Alta motivación! Plan de 7 días y a por ello."
-          : (score>=6) ? "Motivación media. Define una meta clara y micro-acciones."
-          : "Motivación baja. Empecemos con una acción de 5–10 minutos.";
-  const wa = "https://wa.me/34629488027?text=" + encodeURIComponent(
-    `Hola Santi, acabo de hacer el test. Mi puntuación: ${score}/9. ¿Me das un consejo personalizado?`
-  );
-  document.getElementById("resultado").innerHTML =
-    `Resultado: <strong>${score}/9</strong><br>${msg}<br>👉 <a href="${wa}" target="_blank" rel="noopener">Recibir consejo por WhatsApp</a>`;
-});
-</script>
-
-
-<!-- Botón flotante -->
-<button class="wa-fab" id="waFab" aria-label="Abrir chat de WhatsApp">
-  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white">
-    <path d="M12.04 2a9.9 9.9 0 0 0-8.5 15l-1 3.7 3.8-1a9.9 9.9 0 1 0 5.7-17.7Zm5.8 14.4c-.2.6-1 1-1.6 1.1-.4 0-.9.1-3-.6-2.5-.9-4-3.1-4.2-3.3-.2-.3-1-1.3-1-2.5s.6-1.8.8-2c.2-.3.5-.4.7-.4h.5c.2 0 .4 0 .6.5.2.6.7 2 .7 2.1 0 .2.1.3 0 .5-.1.2-.2.3-.4.5l-.3.4c-.1.1-.3.2-.1.6.2.4.7 1.2 1.5 2 .8.8 1.6 1.1 2 .1l.3-.4c.2-.3.3-.3.5-.4h.5c.1 0 .3 0 .5.2.1.2.7.5.8.9.1.4.1.7 0 1Z"/>
-  </svg>
-</button>
-
-<!-- Caja de chat -->
-<div class="wa-box" id="waBox" aria-hidden="true">
-  <div class="wa-header">
-    <span>WhatsApp — Futuro en Movimiento</span>
-    <button class="wa-close" id="waClose" aria-label="Cerrar">×</button>
-  </div>
-  <div class="wa-body">
-    <p>Hola 👋 ¿En qué puedo ayudarte?</p>
-    <textarea id="waMsg" rows="3" placeholder="Escribe tu mensaje..."></textarea>
-  </div>
-  <div class="wa-actions">
-    <button id="waSend" class="btn btn--pill">Enviar por WhatsApp</button>
-  </div>
-</div>
-<script>
-  // Número en formato internacional (España: 34)
-  const WA_NUMBER = "34629488027";  
-
-  const $fab   = document.getElementById('waFab');
-  const $box   = document.getElementById('waBox');
-  const $close = document.getElementById('waClose');
-  const $send  = document.getElementById('waSend');
-  const $msg   = document.getElementById('waMsg');
-
-  // Abrir/cerrar chatbox
-  $fab.addEventListener('click', () => {
-    $box.classList.toggle('is-open');
-    if ($box.classList.contains('is-open') && !$msg.value) {
-      $msg.value = "Hola, me interesa una sesión de coaching 🙂";
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('form.contact-form');
+    const ts = document.getElementById('consent_ts');
+    if (form && ts) {
+      form.addEventListener('submit', () => { ts.value = new Date().toISOString(); });
     }
   });
-  $close.addEventListener('click', () => $box.classList.remove('is-open'));
-
-  // Enviar mensaje
-  $send.addEventListener('click', () => {
-    const text = encodeURIComponent($msg.value || "Hola 👋");
-    const url = `https://wa.me/${WA_NUMBER}?text=${text}`;
-    window.open(url, '_blank', 'noopener');
-  });
 </script>
-
-<script>
-// ID de tu propiedad GA4
-const GA_MEASUREMENT_ID = "G-SX0VVQPPVH";
-
-// Función para cargar GA4 dinámicamente
-function loadGA4() {
-  const scriptTag = document.createElement("script");
-  scriptTag.async = true;
-  scriptTag.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
-  document.head.appendChild(scriptTag);
-
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){ dataLayer.push(arguments); }
-  window.gtag = gtag;
-  gtag('js', new Date());
-  gtag('config', GA_MEASUREMENT_ID);
-}
-
-// Mostrar/ocultar banner según consentimiento
-window.addEventListener("DOMContentLoaded", () => {
-  const banner = document.getElementById("cookie-banner");
-  const acceptBtn = document.getElementById("cookies-accept");
-  const rejectBtn = document.getElementById("cookies-reject");
-
-  // Revisar si ya existe elección en localStorage
-  const consent = localStorage.getItem("cookieConsent");
-  if (consent === "accepted") {
-    loadGA4(); // cargar GA4 directamente
-    banner.style.display = "none";
-  } else if (consent === "rejected") {
-    banner.style.display = "none"; // ocultar pero sin GA4
-  } else {
-    banner.style.display = "block";
-  }
-
-  // Botón Aceptar todas
-  acceptBtn.addEventListener("click", () => {
-    localStorage.setItem("cookieConsent", "accepted");
-    loadGA4();
-    banner.style.display = "none";
-  });
-
-  // Botón Solo necesarias
-  rejectBtn.addEventListener("click", () => {
-    localStorage.setItem("cookieConsent", "rejected");
-    banner.style.display = "none";
-  });
-});
-</script>
-
 
 
 </body>
