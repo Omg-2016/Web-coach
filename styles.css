@@ -898,6 +898,147 @@ button:focus-visible,
   box-shadow: 0 14px 28px rgba(0,0,0,.2);
 }
 
+/* =========================
+   SOBRE MÍ — BLOQUES ALTERNOS
+   (HTML dado: .about-split)
+========================= */
+.about-split{
+  /* tonos tierra suaves y consistentes con la web */
+  --tone-bg: #f4efe9;            /* arena claro */
+  --tone-card:#fff;              /* carta */
+  --tone-ink: var(--ink);
+  --tone-accent: var(--brown);   /* marrón marca */
+  --tone-accent-2:#8a6a53;       /* marrón + oscuro */
+
+  padding: clamp(40px, 6vw, 80px) 0;
+  background: linear-gradient(180deg, var(--paper), var(--tone-bg));
+}
+
+.about-split .split-block{
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: clamp(18px, 3.5vw, 36px);
+  align-items: center;
+  width: min(1100px, 92vw);
+  margin: clamp(18px, 3.5vw, 42px) auto;
+}
+
+/* Alternancia: img-left (foto a la izquierda), img-right (foto a la derecha) */
+.about-split .img-right .split-media{ order: 2; }
+.about-split .img-right .split-text{  order: 1; }
+
+/* ============= MEDIA (figure/picture/img) ============= */
+.about-split .split-media{
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.04), rgba(0,0,0,.10));
+  border: 1px solid rgba(17,24,39,.08);
+  box-shadow: 0 12px 28px rgba(17,24,39,.08);
+}
+
+/* Evita “huecos” verticales: fuerza aspecto y cobertura de imagen */
+.about-split .split-media img{
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16/10;           /* cambia a 4/3 o 1/1 si te encaja mejor */
+  object-fit: cover;
+  display: block;
+  transform: scale(1);
+  transition: transform .5s ease;
+}
+.about-split .split-media:hover img{ transform: scale(1.02); }
+
+/* Caption solo para lectores de pantalla (ya viene en HTML) */
+.about-split .sr-only{
+  position:absolute!important; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+}
+
+/* ============= TEXTO ============= */
+.about-split .split-text{
+  background: linear-gradient(180deg, var(--tone-card), #faf7f3);
+  border: 1px solid rgba(17,24,39,.08);
+  border-left: 6px solid var(--tone-accent);
+  border-radius: calc(var(--radius) + 4px);
+  box-shadow: 0 8px 22px rgba(17,24,39,.06);
+  padding: clamp(18px, 3.6vw, 28px);
+  color: var(--tone-ink);
+}
+
+.about-split .split-text h2{
+  margin: 0 0 10px 0;
+  font-size: clamp(1.25rem, 2.6vw, 1.6rem);
+  line-height: 1.25;
+  color: var(--tone-accent-2);
+  letter-spacing: .2px;
+}
+
+.about-split .split-text p{ margin: 0 0 10px 0; color:#2b3138; }
+.about-split .split-text p em{ font-style: normal; color: var(--blue); }
+
+/* Bullets */
+.about-split .bullets{
+  margin: 8px 0 0 0; padding-left: 0; list-style: none;
+}
+.about-split .bullets li{
+  position: relative;
+  padding-left: 26px;
+  margin: 8px 0;
+}
+.about-split .bullets li::before{
+  content:""; position:absolute; left:0; top:.55em;
+  width:12px; height:12px; border-radius:50%;
+  background: radial-gradient(circle at 30% 30%, var(--tone-accent), var(--tone-accent-2));
+  box-shadow: 0 0 0 2px #fff inset;
+}
+
+/* Pills (Objetivo · Plan · Acción · Revisión) */
+.about-split .pill-row{
+  display:flex; flex-wrap:wrap; gap:10px; margin-top: 10px;
+}
+.about-split .pill{
+  padding: 6px 12px; border-radius: 999px;
+  font-weight: 600; font-size: .9rem; letter-spacing:.2px;
+  background: rgba(169,130,99,.12); /* marrón translúcido */
+  border: 1px solid rgba(169,130,99,.35);
+  color: var(--tone-accent-2);
+  backdrop-filter: saturate(1.2);
+}
+
+/* CTA */
+.about-split .btn-cta{
+  display:inline-block; margin-top: 12px;
+  padding: 10px 16px; border-radius: 999px;
+  background: var(--brown); color:#fff; text-decoration:none; font-weight:700;
+  box-shadow: 0 10px 22px rgba(0,0,0,.12);
+  transition: transform .15s ease, filter .15s ease;
+}
+.about-split .btn-cta:hover{ filter:brightness(.95); transform: translateY(-1px); }
+
+/* Separador sutil entre artículos (opcional) */
+.about-split .split-block + .split-block{
+  border-top: 1px solid rgba(17,24,39,.06);
+  padding-top: clamp(16px, 3vw, 28px);
+}
+
+/* ============= RESPONSIVE ============= */
+@media (max-width: 980px){
+  .about-split .split-block{
+    grid-template-columns: 1fr;
+  }
+  /* En móvil: primero la foto para ritmo visual */
+  .about-split .split-block .split-media{ order: 1 !important; }
+  .about-split .split-block .split-text{  order: 2 !important; }
+  .about-split .split-media img{ aspect-ratio: 16/11; }
+}
+
+@media (max-width: 560px){
+  .about-split{ padding: 32px 0; }
+  .about-split .split-text{ padding: 16px 14px; border-left-width:5px; }
+  .about-split .split-text h2{ font-size: 1.2rem; }
+}
 
 /* =========================================================
    🔽 DESPLEGABLES
@@ -1385,4 +1526,328 @@ body.preloading{overflow:hidden}
   object-position: center !important;
   display: block;
   background: #0e1626;            /* bandas de fondo si sobran */
+}
+/* === Ajuste compacto para las fotos de SOBRE MÍ === */
+.about-split{ 
+  max-width: 1100px;           /* límite de ancho para que nada se vea gigante */
+  margin-inline: auto;
+}
+
+.split-block{
+  grid-template-columns: 0.95fr 1.05fr;   /* menos ancho para la imagen */
+  gap: clamp(12px, 2.5vw, 22px);
+  padding: clamp(12px, 2.5vw, 22px);
+}
+
+/* Tamaño controlado de la imagen */
+.split-media{
+  height: clamp(200px, 26vw, 320px);  /* ↓ altura máxima en desktop */
+  border-radius: 14px;
+}
+.split-media img{
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover;
+  object-position: center;            /* prueba 'top center' si te corta la cabeza */
+}
+
+/* Móvil: aún más compactas */
+@media (max-width: 920px){
+  .split-media{ 
+    height: clamp(180px, 45vw, 260px);
+  }
+}
+
+/* === Mejora visual about-split (override) === */
+.about-split{
+  background: linear-gradient(180deg, #f6f3ef, #f1ece6);
+}
+
+/* Bloques: un poco menos de “caja” y más aire */
+.about-split .split-block{
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(18px, 3vw, 28px);
+  padding: 0;                    /* sin padding interno de bloque */
+}
+
+/* Imagen: más grande, 4:3, foco a la cara; fondo limpio (sin degradado gris) */
+.about-split .split-media{
+  background: none;
+  border: 1px solid rgba(17,24,39,.06);
+  box-shadow: 0 8px 20px rgba(17,24,39,.06);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.about-split .split-media img{
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center top;     /* evita cortar cabeza */
+}
+
+/* Carta de texto: look más editorial (borde lateral en marrón) */
+.about-split .split-text{
+  background: #fff;
+  border: 1px solid rgba(17,24,39,.08);
+  border-left: 5px solid var(--brown);
+  box-shadow: 0 6px 18px rgba(0,0,0,.05);
+  border-radius: 14px;
+  padding: clamp(18px, 3vw, 26px);
+}
+.about-split .split-text h2{
+  color: #7a5f4c;                 /* marrón más sobrio */
+  margin-bottom: 8px;
+}
+.about-split .split-text p{
+  color: #2b2f36;
+  line-height: 1.65;              /* más legible */
+}
+
+/* Bullets: icono más pequeño y alineado */
+.about-split .bullets li{
+  margin: 6px 0;
+  padding-left: 22px;
+}
+.about-split .bullets li::before{
+  width:10px; height:10px; top:.55em;
+  background: radial-gradient(circle at 35% 35%, var(--brown), #7a5f4c);
+  box-shadow: none;
+}
+
+/* Pills más ligeras (no robar foco) */
+.about-split .pill{
+  background: rgba(169,130,99,.10);
+  border-color: rgba(169,130,99,.28);
+  font-weight: 600;
+  font-size: .88rem;
+}
+
+/* CTA con sombra más baja */
+.about-split .btn-cta{
+  box-shadow: 0 6px 14px rgba(0,0,0,.12);
+}
+
+/* Separador sutil entre artículos (línea arena) */
+.about-split .split-block + .split-block{
+  border-top: 1px solid rgba(122,95,76,.12);
+  padding-top: clamp(14px, 2.4vw, 24px);
+}
+
+/* Alternancia sigue igual */
+.about-split .img-right .split-media{ order:2; }
+.about-split .img-right .split-text{  order:1; }
+
+/* Responsive: foto primero en móvil, altura cómoda */
+@media (max-width: 980px){
+  .about-split .split-block{ grid-template-columns: 1fr; }
+  .about-split .split-block .split-media{ order:1 !important; }
+  .about-split .split-block .split-text{  order:2 !important; }
+  .about-split .split-media img{ aspect-ratio: 4/3; }
+}
+@media (max-width: 560px){
+  .about-split .split-text{ padding: 14px; border-left-width:4px; }
+  .about-split .split-text h2{ font-size: 1.15rem; }
+}
+/* === Ajuste márgenes en bloques ABOUT SPLIT === */
+.about-split {
+  padding: clamp(24px, 4vw, 40px) 0;   /* antes 40–80px → ahora más compacto */
+  background: linear-gradient(180deg, var(--paper), #eae4dd);
+}
+
+/* Bloques internos: sin padding extra, solo gap */
+.about-split .split-block {
+  padding: 0; 
+  margin: clamp(14px, 2vw, 24px) auto; /* en lugar de 40px+ */
+}
+
+/* Separador más fino y elegante entre bloques */
+.about-split .split-block + .split-block {
+  border-top: 1px solid rgba(122,95,76,.15);
+  padding-top: clamp(12px, 2vw, 20px);
+}
+
+/* En móvil aún más apretado */
+@media (max-width: 768px){
+  .about-split { padding: 20px 0; }
+  .about-split .split-block { margin: 12px auto; }
+}
+/* === Marco unificado para SOBRE MÍ === */
+.about-split{
+  /* fondo marrón claro de toda la franja */
+  background: #e1d9ce; /* arena claro */
+  padding: clamp(28px, 4.5vw, 56px) 0;
+}
+
+/* Tarjeta grande con marco marrón oscuro */
+.about-split__frame{
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+  background: #f6f3ef;                         /* interior limpio */
+  border: 4px solid #7a5f4c;                /* marrón oscuro del marco */
+  border-radius: 18px;
+  box-shadow: 0 12px 28px rgba(17,24,39,.10);
+  padding: clamp(18px, 3.2vw, 28px);        /* aire interior del marco */
+}
+
+/* Dentro del marco: compacidad y ritmo */
+.about-split__frame .split-block{
+  margin: clamp(12px, 2.2vw, 22px) 0;
+}
+
+/* Separador fino entre filas (opcional) */
+.about-split__frame .split-block + .split-block{
+  border-top: 1px solid rgba(122,95,76,.15); /* línea arena */
+  padding-top: clamp(12px, 2vw, 20px);
+}
+
+/* Integra mejor las tarjetas internas con el marco */
+.about-split__frame .split-text{
+  border-radius: 14px;
+  border-left-width: 5px;
+  box-shadow: 0 6px 16px rgba(0,0,0,.06);   /* más sutil */
+}
+.about-split__frame .split-media{
+  border-radius: 14px;
+  box-shadow: 0 8px 18px rgba(0,0,0,.06);
+}
+
+/* Ajuste de las imágenes: 4:3 cómodo y foco en caras */
+.about-split__frame .split-media img{
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Responsive: foto primero en móvil y aire del marco */
+@media (max-width: 980px){
+  .about-split__frame{ padding: 16px; }
+  .about-split__frame .split-block{ margin: 10px 0; }
+}
+@media (max-width: 560px){
+  .about-split{ padding: 22px 0; }
+  .about-split__frame{ padding: 14px; border-width: 3px; }
+  .about-split__frame .split-text{ padding: 14px; border-left-width: 4px; }
+}
+
+/* === Ajustes SOBRE MÍ === */
+
+/* Mini margen con la sección siguiente */
+.about-split {
+  margin-bottom: clamp(24px, 4vw, 48px);
+}
+
+/* Marco: que recorte desbordes y dé aire dentro */
+.about-split__frame {
+  overflow: hidden;       /* recorta sombras que se salgan */
+  box-sizing: border-box;
+  padding: clamp(18px, 3vw, 28px); /* respiro lateral dentro del marco */
+}
+
+/* Bloques internos: respetan el marco */
+.about-split__frame .split-block {
+  margin: clamp(12px, 2vw, 20px) 0;
+  padding: 0;
+}
+
+/* Asegura que nada sobresalga */
+.about-split__frame .split-text,
+.about-split__frame .split-media {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+/* === Ajuste de padding interno en el marco Sobre mí === */
+.about-split__frame {
+  padding: clamp(24px, 4vw, 40px);   /* aire uniforme en todos los lados */
+}
+
+/* Cada bloque respeta ese padding, sin pegarse al borde */
+.about-split__frame .split-block {
+  margin: clamp(20px, 3vw, 32px) 0;  /* solo margen vertical entre filas */
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+/* === Recuadros de texto en color arena === */
+.about-split__frame .split-text {
+  background: #f9f6f1;   /* arena claro */
+  border-radius: 14px;
+  padding: 18px 22px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06); /* más suave que el blanco */
+}
+/* === Unificar márgenes de los bloques SOBRE MÍ === */
+.about-split__frame .split-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(24px, 4vw, 40px); /* mismo espacio entre foto y texto */
+  margin: clamp(32px, 5vw, 48px) 0; /* mismo margen arriba y abajo */
+}
+
+/* Para que el texto no se despegue más que las fotos */
+.about-split__frame .split-text,
+.about-split__frame .split-media {
+  margin: 0;
+}
+
+/* En móvil: una sola columna con el mismo gap */
+@media (max-width: 768px) {
+  .about-split__frame .split-block {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin: 32px 0;
+  }
+}
+/* Centrar foto en móvil dentro de about-grid */
+@media (max-width: 980px) {
+  .about-photo {
+    margin: 0 auto;           /* centra el bloque */
+    max-width: 90%;           /* que no se coma todo el ancho */
+    display: flex; 
+    justify-content: center;  /* centra el contenido dentro */
+  }
+
+  .about-photo img {
+    max-height: 360px;        /* opcional: más pequeña en móvil */
+    object-fit: cover;
+  }
+}
+/* Asegura que el FAB y la caja están por encima de todo */
+.wa-fab { z-index: 2147483647 !important; }  /* tope */
+.wa-box { z-index: 2147483646 !important; }
+
+/* === SOBRE MÍ – NORMALIZA MÁRGENES EN ESCRITORIO === */
+
+/* 1) El marco define el aire global */
+.about-split__frame{
+  padding: clamp(18px, 2.5vw, 28px);
+}
+
+/* 2) Cada bloque: sin padding interno, solo separación vertical uniforme */
+.about-split .split-block{
+  padding: 0;                         /* quitamos el padding que hacía de “doble margen” */
+  margin: 0 0 clamp(18px, 2.4vw, 26px);
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;  /* tus columnas */
+  gap: clamp(18px, 2.2vw, 32px);      /* separación entre columnas estable */
+  align-items: center;
+}
+
+/* último bloque sin extra */
+.about-split .split-block:last-child{ margin-bottom: 0; }
+
+/* 3) Asegura que los hijos no añaden márgenes raros */
+.about-split .split-media,
+.about-split .split-text{ margin: 0; }
+
+/* 4) Si tenías un separador entre artículos, lo desactivamos para no “descuadrar” las filas en desktop */
+.about-split .split-block + .split-block{
+  border-top: none;
+  padding-top: 0;
+}
+
+/* 5) En móvil mantenemos tu comportamiento actual (se apilan) */
+@media (max-width: 980px){
+  .about-split .split-block{
+    grid-template-columns: 1fr;
+    margin: 0 0 18px;
+  }
 }
