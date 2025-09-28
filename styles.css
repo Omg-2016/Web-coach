@@ -1851,3 +1851,47 @@ body.preloading{overflow:hidden}
     margin: 0 0 18px;
   }
 }
+
+/* ==== FIX imágenes del index en móvil (solo overrides) ==== */
+@media (max-width: 640px) {
+  /* si tus bloques son en 2 columnas, fuerza 1 columna */
+  .split-block,
+  .feature-row,
+  .cta-grid {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    gap: var(--gap, 24px);
+  }
+
+  /* el contenedor de la imagen: que no tenga width fijo */
+  .split-block .media,
+  .feature-row .media,
+  .cta-grid .media,
+  section figure.hero-photo {
+    max-width: none !important;
+    width: 100% !important;
+    margin: 0 auto var(--gap, 24px) !important;
+  }
+
+  /* la imagen en sí: a todo el ancho y alta automática */
+  .split-block .media img,
+  .feature-row .media img,
+  .cta-grid .media img,
+  section figure.hero-photo img {
+    display: block;
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover;        /* por si existe alto forzado en desktop */
+    border-radius: var(--radius, 16px);
+  }
+
+  /* si alguna tenía height fijo: fija una relación y evita “miniatura” */
+  .split-block .media,
+  .feature-row .media,
+  .cta-grid .media {
+    aspect-ratio: auto; /* quita crops; pon 16/9 si quieres recorte bonito */
+  }
+
+  /* opcional: sube la imagen por encima del texto en móvil */
+  .split-block .media { order: -1; }
+}
