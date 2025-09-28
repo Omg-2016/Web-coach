@@ -1852,46 +1852,56 @@ body.preloading{overflow:hidden}
   }
 }
 
-/* ==== FIX imágenes del index en móvil (solo overrides) ==== */
+/* ==== FULL-BLEED + ALTURA DECENTE PARA LAS 3 FOTOS EN MÓVIL ==== */
 @media (max-width: 640px) {
-  /* si tus bloques son en 2 columnas, fuerza 1 columna */
+  /* Fuerza 1 columna en esas filas (por si siguen en 2) */
   .split-block,
   .feature-row,
   .cta-grid {
-    display: grid;
+    display: grid !important;
     grid-template-columns: 1fr !important;
-    gap: var(--gap, 24px);
+    gap: var(--gap, 24px) !important;
   }
 
-  /* el contenedor de la imagen: que no tenga width fijo */
+  /* Haz que el contenedor de la imagen rompa el padding del .container (full-bleed) */
   .split-block .media,
   .feature-row .media,
   .cta-grid .media,
+  .about-hero .hero-photo,      /* por si alguna es figure */
   section figure.hero-photo {
-    max-width: none !important;
-    width: 100% !important;
-    margin: 0 auto var(--gap, 24px) !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+    border-radius: 0 !important;  /* si quieres esquinas, quita esta línea */
   }
 
-  /* la imagen en sí: a todo el ancho y alta automática */
+  /* Imagen a ancho completo + altura suficiente para que no “se vea pequeña” */
   .split-block .media img,
   .feature-row .media img,
   .cta-grid .media img,
+  .about-hero .hero-photo img,
   section figure.hero-photo img {
-    display: block;
+    display: block !important;
     width: 100% !important;
-    height: auto !important;
-    object-fit: cover;        /* por si existe alto forzado en desktop */
-    border-radius: var(--radius, 16px);
+    height: clamp(240px, 45vw, 420px) !important; /* <- DA CUERPO A LA FOTO */
+    object-fit: cover !important;
   }
 
-  /* si alguna tenía height fijo: fija una relación y evita “miniatura” */
+  /* Por si el padre tenía un ancho fijo (flex-basis / max-width) */
   .split-block .media,
   .feature-row .media,
   .cta-grid .media {
-    aspect-ratio: auto; /* quita crops; pon 16/9 si quieres recorte bonito */
+    flex: 1 1 100% !important;
+    max-width: none !important;
   }
 
-  /* opcional: sube la imagen por encima del texto en móvil */
+  /* Que la imagen salga arriba del texto en móvil (opcional) */
   .split-block .media { order: -1; }
 }
+
+/* --- OPCIONAL: debug rápido para comprobar que el selector aplica
+@media (max-width:640px){
+  .split-block .media, .feature-row .media, .cta-grid .media { outline: 2px dashed magenta; }
+}
+*/
