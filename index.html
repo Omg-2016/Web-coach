@@ -10,11 +10,13 @@
   <!-- iOS notch + responsive -->
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
-  <title>Futuro en Movimiento · Coaching — Santiago Suárez</title>
-  <meta name="description" content="Coaching emocional y motivacional para adolescentes, familias y equipos: sesiones 1:1, procesos, talleres y trabajo con equipos." />
+  <!-- SEO -->
+  <title>Coaching emocional y motivacional en Barcelona | Futuro en Movimiento</title>
+  <meta name="description" content="Coach personal en Barcelona. Coaching emocional para adolescentes, familias y equipos. Sesiones 1:1, procesos y talleres. Agenda tu primera sesión." />
   <meta name="author" content="Santiago Suárez" />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://futuroenmovimiento.es/" />
+  <link rel="alternate" hreflang="es-ES" href="https://futuroenmovimiento.es/" />
 
   <!-- Tema del navegador (dinámico por modo claro/oscuro) -->
   <meta name="theme-color" content="#0f244c" media="(prefers-color-scheme: light)" />
@@ -30,7 +32,7 @@
   <link rel="stylesheet" href="styles.css?v=7" />
 
   <!-- Favicons (logo circular a color) -->
-  <link rel="icon" href="img/" type="image/png" sizes="32x32" />
+  <link rel="icon" href="img/logo-fondo-blanco-remove.png" type="image/png" sizes="32x32" />
   <link rel="icon" href="img/logo-fondo-blanco-remove.png" type="image/png" sizes="192x192" />
   <link rel="apple-touch-icon" href="img/logo-fondo-blanco-remove.png" sizes="180x180" />
   <link rel="shortcut icon" href="img/logo-fondo-blanco-remove.png" type="image/png">
@@ -38,18 +40,19 @@
   <!-- Social / Open Graph -->
   <meta property="og:site_name" content="Futuro en Movimiento" />
   <meta property="og:locale" content="es_ES" />
-  <meta property="og:title" content="Futuro en Movimiento · Coaching — Santiago Suárez" />
-  <meta property="og:description" content="Coaching emocional y motivacional para adolescentes, familias y equipos: sesiones 1:1, procesos, talleres y trabajo con equipos." />
+  <meta property="og:title" content="Coaching emocional y motivacional en Barcelona | Futuro en Movimiento" />
+  <meta property="og:description" content="Coach personal: adolescentes, familias y equipos. Sesiones 1:1, procesos y talleres." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://futuroenmovimiento.es/" />
   <meta property="og:image" content="https://futuroenmovimiento.es/img/logo-color.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Futuro en Movimiento - Coaching emocional y motivacional" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Futuro en Movimiento · Coaching — Santiago Suárez" />
-  <meta name="twitter:description" content="Coaching emocional y motivacional para adolescentes, familias y equipos: sesiones 1:1, procesos, talleres y trabajo con equipos." />
+  <meta name="twitter:title" content="Coaching emocional y motivacional en Barcelona | Futuro en Movimiento" />
+  <meta name="twitter:description" content="Coach personal: adolescentes, familias y equipos. Sesiones 1:1, procesos y talleres." />
   <meta name="twitter:image" content="https://futuroenmovimiento.es/img/logo-color.png" />
 
   <!-- Rendimiento: precargar lo crítico del “above-the-fold” -->
@@ -61,6 +64,43 @@
   <link rel="prefetch" href="sobre-mi.html" />
   <link rel="prefetch" href="servicios.html" />
 
+  <!-- Datos estructurados (Local + WebSite Search) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"Futuro en Movimiento - Coaching",
+    "image":"https://futuroenmovimiento.es/img/logo-color.png",
+    "url":"https://futuroenmovimiento.es/",
+    "telephone":"+34 629 488 027",
+    "address":{
+      "@type":"PostalAddress",
+      "addressLocality":"Barcelona",
+      "addressRegion":"Barcelona",
+      "addressCountry":"ES"
+    },
+    "areaServed":["Barcelona","Online"],
+    "priceRange":"€€",
+    "sameAs":[
+      "https://www.google.com/maps?cid=REEMPLAZA_ID",
+      "https://www.instagram.com/REEMPLAZA"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"Futuro en Movimiento",
+    "url":"https://futuroenmovimiento.es/",
+    "potentialAction":{
+      "@type":"SearchAction",
+      "target":"https://futuroenmovimiento.es/buscar?q={search_term_string}",
+      "query-input":"required name=search_term_string"
+    }
+  }
+  </script>
+
   <!-- JS propios -->
   <script src="menu.js?v=9" defer></script>
   <script src="custom.js" defer></script>
@@ -68,6 +108,7 @@
   <!-- (Opcional futuro) PWA -->
   <!-- <link rel="manifest" href="site.webmanifest"> -->
 </head>
+
 
 <body>
 
